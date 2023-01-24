@@ -5,6 +5,7 @@ import { ThirdButton } from "./ThirdButton"
 import { Footer } from "./Footer"
 import { Card } from "./card"
 import logo from "./assets/logo.png"
+import BodyModelCanvas from "./BodyModelCanvas"
 import "./button.css"
 
 export function Design() {
@@ -23,6 +24,9 @@ export function Design() {
                     <img className="w-[250px]" src={logo} />
                 </div>
                 <Card />
+            </div>
+            <div className="min-h-[500px] h-1/1 w-1/1 mx-auto sm:w-1/2 sm:h-1/2">
+        <BodyModelCanvas />
             </div>
             <Footer />
         </div>
