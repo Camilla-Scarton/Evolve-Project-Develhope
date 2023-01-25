@@ -1,11 +1,15 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import  {Canvas} from "@react-three/fiber"
-import { OrbitControls, Plane } from '@react-three/drei';
+import { OrbitControls, PerspectiveCamera, Plane } from '@react-three/drei';
 import {BodyModel} from "./BodyModel";
 import * as THREE from "three"
 
 export default function FirstCanvas() {
 const plane = new THREE.MeshPhysicalMaterial();
+
+const modelRef = useRef();
+
+console.log(modelRef);
 
 plane.color = {
     r: 0,
@@ -21,7 +25,8 @@ console.log(plane)
             <directionalLight intensity={0.3} color="#dcf" position={[0.5, 1, 2]} castShadow/>
             <directionalLight intensity={0.3} color="#fdd" position={[-0.5, 0, -2]} />
             <directionalLight intensity={0.3} color="#dcf" position={[0.5, 1, -2]} />
-                <OrbitControls />
+            <PerspectiveCamera position={[-1.2, 2.5, 7]} makeDefault/>
+                <OrbitControls ref={modelRef} maxDistance={10} minDistance={1} maxPolarAngle={1.9}/>
                 <BodyModel position={[0, -3.5, 0]} rotation={[0,3,0]} castShadow scale={1.5}/>
                 <Plane radius={5} blur={1} material={plane} opacity={0.5} position={[0, -3.54, 0]} args={[1000,1000]} rotation={[-1.58,0,0]} receiveShadow>
                 </Plane>
