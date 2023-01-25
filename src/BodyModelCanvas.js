@@ -20,7 +20,7 @@ plane.metalness = 1.5
 console.log(plane)
     return <div className='min-h-[500px] w-full h-full'>
         <Suspense fallback={null}>
-        <Canvas shadows style={{height: "550px"}} className='min-h-[500px] w-full h-full bg-white dark:bg-black justify-center items-center'>
+        <Canvas shadows style={{height: "550px"}} className='min-h-[500px] w-full h-full bg-white dark:bg-slate-900 justify-center items-center'>
             <directionalLight intensity={0.3} color="#fdd" position={[-0.5, 0, 2]} />
             <directionalLight intensity={0.3} color="#dcf" position={[0.5, 1, 2]} castShadow/>
             <directionalLight intensity={0.3} color="#fdd" position={[-0.5, 0, -2]} />

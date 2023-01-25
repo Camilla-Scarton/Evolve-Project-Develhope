@@ -1,7 +1,7 @@
 export function ThirdButton() {
     return (
         <div>
-            <button className="drop-shadow-xl text-white bg-gradient-to-r from-blue-900 via-[#470ea3] to-purple-800 rounded-md px-5 w-[250px] py-2 m-5  hover:from-blue-300 dark:hover:to-blue-500 hover:to-blue-900"><span>Third Button</span></button>
+            <button className="shadow-xl text-white rounded-md px-5 w-[250px] py-2 m-5 bg-gradient-to-r from-blue-900 to-purple-800 hover:from-purple-800 hover:to-blue-900 hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)] dark:to-blue-400 dark:from-violet-500"><span>Third Button</span></button>
         </div>
     )
 }
