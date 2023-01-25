@@ -10,22 +10,26 @@ h1{
 }
 
 h2{
-    @apply text-2xl sm:text-4xl
+    @apply text-2xl sm:text-4xl font-bold
 }
 
 h3{
-    @apply sm:text-3xl
+    @apply text-xl sm:text-3xl font-bold
 }
 
 h4{
-    @apply sm:text-2xl
+    @apply sm:text-2xl font-bold
 }
 
 h5{
-    @apply sm:text-xl
+    @apply text-sm sm:text-xl font-bold
 }
 
 h6{
-    @apply sm:text-lg
+    @apply text-xs sm:text-lg font-bold
+}
+
+p{
+    @apply text-sm sm:text-lg 
 }
 
