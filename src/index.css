@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Nanum+Gothic&family=Poppins&display=swap');
+
+*{font-family: 'Poppins', sans-serif;}
+
+h1{
+    @apply text-3xl sm:text-5xl font-bold
+}
+
+h2{
+    @apply text-2xl sm:text-4xl
+}
+
+h3{
+    @apply sm:text-3xl
+}
+
+h4{
+    @apply sm:text-2xl
+}
+
+h5{
+    @apply sm:text-xl
+}
+
+h6{
+    @apply sm:text-lg
+}
+
