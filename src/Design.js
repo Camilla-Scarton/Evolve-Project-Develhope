@@ -5,7 +5,9 @@ import { ThirdButton } from "./ThirdButton"
 import { Footer } from "./Footer"
 import { Card } from "./card"
 import logo from "./assets/logo.png"
+import logoDark from "./assets/logoDark.png"
 import logo3 from "./assets/logo3.png"
+import logo3Dark from "./assets/logo3Dark.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -13,9 +15,6 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
-
-
-
 
 import BodyModelCanvas from "./BodyModelCanvas"
 import "./button.css"
@@ -26,30 +25,23 @@ export function Design() {
             <Navbar />
             <div className="w-full flex flex-wrap justify-between">
                 <div className="flex-col">
-                    <button className="m-5 relative inline-flex items-center justify-start px-5 py-2 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group">
-                        <span className="w-48 h-48 rounded rotate-[-40deg] bg-blue-600 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                        <span className="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-white">Search</span>
-                    </button>
-                    <button className="btn m-5"><span>Hover me!</span></button>
                     <FirstButton />
                     <SecondButton />
                     <ThirdButton />
                 </div>
-                <div className="drop-shadow-xl text-white w-[450px] h-full p-5 m-5 bg-blue-900 rounded-md bg-gradient-to-tr
- dark:from-purple-300 dark:to-blue-400">
+                <div className="flex-col items-center gap-2 text-white w-[450px] h-full p-5 m-5 bg-blue-900 rounded-md bg-gradient-to-tr
+                    dark:from-purple-300 dark:to-blue-400">
                     <h3 className="flex text-xl items-center justify-center">LOGO:</h3>
-                    <div className="flex text-xl items-center justify-center"> <img className="w-[150px]" src={logo} /> <img className="w-[150px]" src={logo3} /></div>
+                    <div className="flex gap-3 text-xl items-center justify-around  m-5"> <img className="w-[100px]" src={logo} /> <img className="w-[100px]" src={logoDark} />  <img className="w-[100px]" src={logo3} /> <img className="w-[100px]" src={logo3Dark} /></div>
                     <h3 className="flex text-xl items-center justify-center">ICONE:</h3>
                     <div className="flex items-center justify-center gap-3">
                         <FontAwesomeIcon icon={faBars} size="2x" />
-                        <FontAwesomeIcon icon={faChevronLeft} size="2x" className="m-5"/>
-                        <FontAwesomeIcon icon={faChevronRight} size="2x" className="m-5"/>
-                        <FontAwesomeIcon icon={faXmark} size="2x" className="m-5"/>
-                        <FontAwesomeIcon icon={faGithub} size="2x" className="m-5"/>
+                        <FontAwesomeIcon icon={faChevronLeft} size="2x" className="m-5" />
+                        <FontAwesomeIcon icon={faChevronRight} size="2x" className="m-5" />
+                        <FontAwesomeIcon icon={faXmark} size="2x" className="m-5" />
+                        <FontAwesomeIcon icon={faGithub} size="2x" className="m-5" />
                         <FontAwesomeIcon icon={faLinkedin} size="2x" className="m-5" />
                     </div>
-
-
                 </div>
                 <div className="drop-shadow-xl flex flex-col items-center gap-2 text-white w-[480px] h-full p-5 m-5 bg-blue-900 rounded-md bg-gradient-to-tr
  dark:from-purple-300 dark:to-blue-400">
@@ -64,9 +56,9 @@ export function Design() {
                 </div>
                 <Card />
             </div>
-               <div className="min-h-[500px] h-1/1 w-1/1 mx-auto sm:w-1/2 sm:h-1/2">
+            <div className="min-h-[500px] h-1/1 w-1/1 mx-auto sm:w-1/2 sm:h-1/2">
                 <BodyModelCanvas />
-    </div>
+            </div>
             <Footer />
         </div>
     )
