@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function BodyModel(props) {
@@ -8,16 +8,21 @@ export function BodyModel(props) {
     e.stopPropagation();
     for (let i = 0; i <= 48; i++) {
       if (materials[`material ${i}`]) {
-        materials[`material ${i}`].color = {
-          b: 0.8670237934377415,
-          g: 0.8670237934377415,
-          isColor: true,
-          r: 0.8670237934377415
-        }
+        materials[`material ${i}`].color = {r:3, g: 3 ,b: 3, isColor: true}
       }
     }
     e.object.material.color = {r:1, g: 0 ,b: 0, isColor: true}
   }
+
+  useEffect(() => {
+    for (let i = 0; i <= 48; i++) {
+      if (materials[`material ${i}`]) {
+        materials[`material ${i}`].metalness = 0.9
+        materials[`material ${i}`].roughness = 0.4
+        materials[`material ${i}`].color = {r:3, g: 3 ,b: 3, isColor: true}
+      }
+    }
+  },[])
 
   return (
     <group {...props} dispose={null}>

@@ -64,7 +64,7 @@ export function Design() {
                 </div>
                 <Card />
             </div>
-               <div className="min-h-[500px] h-1/1 w-1/1 mx-auto sm:w-1/2 sm:h-1/2">
+               <div className="min-h-[500px] h-1/1 w-1/1 mx-auto">
                 <BodyModelCanvas />
     </div>
             <Footer />
