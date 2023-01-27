@@ -4,7 +4,7 @@ import logo from "./assets/logo.png"
 export function Card() {
     return (
         <div>
-            <div className="bg-gradient-to-tr drop-shadow-lg from-blue-300 to-blue-900 sm:max-w-sm max-w-[240px] rounded-md overflow-hidden 
+            <div className="bg-gradient-to-tr drop-shadow-lg from-blue-300 via-blue-900 to-purple-400 sm:max-w-sm max-w-[240px] rounded-md overflow-hidden 
             shadow-lg m-5 dark:from-purple-300 dark:to-blue-400 transition-all duration-200 hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600">
                     <div className="px-6 py-4">
                         <img className="w-full" src={logo} alt="LOGO"/>
