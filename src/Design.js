@@ -30,7 +30,7 @@ export function Design() {
                     <ThirdButton />
                 </div>
                 <div className="flex-col items-center gap-2 text-white w-[450px] h-full p-5 m-5  from-blue-300 via-blue-900 to-purple-400 rounded-md bg-gradient-to-tr
-                    dark:from-purple-300 dark:to-blue-400">
+                    dark:from-purple-300  dark:via-purple-700 dark:to-blue-400">
                     <h3 className="flex text-xl items-center justify-center">LOGO:</h3>
                     <div className="flex gap-3 text-xl items-center justify-around  m-5"> <img className="w-[100px]" src={logo} /> <img className="w-[100px]" src={logoDark} />  <img className="w-[100px]" src={logo3} /> <img className="w-[100px]" src={logo3Dark} /></div>
                     <h3 className="flex text-xl items-center justify-center">ICONE:</h3>
@@ -44,7 +44,7 @@ export function Design() {
                     </div>
                 </div>
                 <div className="drop-shadow-xl flex flex-col items-center gap-2 text-white w-[480px] h-full p-5 m-5 from-blue-300 via-blue-900 to-purple-400 rounded-md bg-gradient-to-tr
-                    dark:from-purple-300 dark:to-blue-400">
+                    dark:from-purple-300 dark:via-purple-700 dark:to-blue-400">
                     <h1>Questo è un h1</h1>
                     <h2>Questo è un h2</h2>
                     <h3>Questo è un h3</h3>
@@ -56,9 +56,9 @@ export function Design() {
                 </div>
                 <Card />
             </div>
-            <div className="min-h-[500px] h-1/1 w-1/1 mx-auto">
+           {/* <div className="min-h-[500px] h-1/1 w-1/1 mx-auto">
                 <BodyModelCanvas />
-            </div>
+    </div> */}
             <Footer />
         </div>
     )
