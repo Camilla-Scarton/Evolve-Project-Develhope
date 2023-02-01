@@ -1,8 +1,6 @@
-import { Navbar } from "./navbar"
 import { FirstButton } from "./FirstButton"
 import { SecondButton } from "./SecondButton"
 import { ThirdButton } from "./ThirdButton"
-import { Footer } from "./Footer"
 import { Card } from "./card"
 import logo from "./assets/logo.png"
 import logoDark from "./assets/logoDark.png"
@@ -22,7 +20,6 @@ import "./button.css"
 export function Design() {
     return (
         <div>
-            <Navbar />
             <div className="w-full flex flex-wrap justify-between">
                 <div className="flex-col">
                     <FirstButton />
@@ -32,7 +29,7 @@ export function Design() {
                 <div className="flex-col items-center gap-2 text-white w-[450px] h-full p-5 m-5  from-blue-300 via-blue-900 to-purple-400 rounded-md bg-gradient-to-tr
                     dark:from-purple-300 dark:to-blue-400">
                     <h3 className="flex text-xl items-center justify-center">LOGO:</h3>
-                    <div className="flex gap-3 text-xl items-center justify-around  m-5"> <img className="w-[100px]" src={logo} /> <img className="w-[100px]" src={logoDark} />  <img className="w-[100px]" src={logo3} /> <img className="w-[100px]" src={logo3Dark} /></div>
+                    <div className="flex gap-3 text-xl items-center justify-around  m-5"> <img className="w-[100px]" src={logo} alt="logo" /> <img className="w-[100px]" src={logoDark} alt="logo"/>  <img className="w-[100px]" src={logo3} alt="logo"/> <img className="w-[100px]" src={logo3Dark} alt="logo"/></div>
                     <h3 className="flex text-xl items-center justify-center">ICONE:</h3>
                     <div className="flex items-center justify-center gap-3">
                         <FontAwesomeIcon icon={faBars} size="2x" />
@@ -59,7 +56,6 @@ export function Design() {
             <div className="min-h-[500px] h-1/1 w-1/1 mx-auto">
                 <BodyModelCanvas />
             </div>
-            <Footer />
         </div>
     )
 }
