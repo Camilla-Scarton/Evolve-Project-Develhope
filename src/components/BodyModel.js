@@ -13,9 +13,9 @@ export function BodyModel(props) {
       }
     }
     e.object.material.color = {r:1, g: 0 ,b: 0, isColor: true}
-    
-    console.log(exercises[e.object.name])
-    console.log(e.object.material.name)
+    props.triggerAnimation(e.object.parent.position);
+/*     console.log(exercises[e.object.name]) */
+    console.log(e.object.parent.position)
   }
 
   useEffect(() => {
@@ -216,7 +216,6 @@ export function BodyModel(props) {
         />
       </group>
       <group 
-        onClick={handleModelClick}
         position={[0, 3.52, -0.15]}
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.11}
