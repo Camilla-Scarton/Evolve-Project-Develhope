@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { FirstButton } from "./FirstButton";
-import { Footer } from "./Footer";
-import { Navbar } from "./navbar"
+
+import { FirstButton } from "../components/FirstButton";
 
 export default function Bmi() {
     const [info, setInfo] = useState({
@@ -39,7 +38,6 @@ export default function Bmi() {
 
 
     return <div>
-        <Navbar/>
         <form className="bg-gradient-to-tr drop-shadow-lg m-5 from-blue-300 via-blue-900 to-purple-400 sm:max-w-sm max-w-[240px] rounded-md overflow-hidden" onSubmit={fetchData} >
             <label htmlFor="age">Age:</label>
             <input className="bg-purple-400 mx-5 my-3 sm:max-w-sm rounded-md overflow-hidden" required type="text" id="age" name="age" value={info.age} onChange={handleInput}></input>
@@ -68,6 +66,5 @@ export default function Bmi() {
             <br></br>
             <FirstButton/>
         </form>
-        <Footer/>
     </div>
 }

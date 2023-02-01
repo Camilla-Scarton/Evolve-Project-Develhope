@@ -22,7 +22,7 @@ export function BodyModel(props) {
         materials[`material ${i}`].color = {r:3, g: 3 ,b: 3, isColor: true}
       }
     }
-  },[])
+  },[materials])
 
   return (
     <group {...props} dispose={null}>
