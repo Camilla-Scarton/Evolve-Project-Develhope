@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
+import exercises from "../utilities/exercises";
 
 export function BodyModel(props) {
   const { nodes, materials } = useGLTF("/Neo.glb");
 
-  function changeColor(e) {
+  function handleModelClick(e) {
     e.stopPropagation();
     for (let i = 0; i <= 48; i++) {
       if (materials[`material ${i}`]) {
@@ -12,6 +13,9 @@ export function BodyModel(props) {
       }
     }
     e.object.material.color = {r:1, g: 0 ,b: 0, isColor: true}
+    
+    console.log(exercises[e.object.name])
+    console.log(e.object.material.name)
   }
 
   useEffect(() => {
@@ -22,7 +26,7 @@ export function BodyModel(props) {
         materials[`material ${i}`].color = {r:3, g: 3 ,b: 3, isColor: true}
       }
     }
-  },[])
+  },[materials])
 
   return (
     <group {...props} dispose={null}>
@@ -33,7 +37,7 @@ export function BodyModel(props) {
         castShadow
       >
         <mesh
-        onClick={changeColor}
+        onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_002.geometry}
@@ -46,7 +50,7 @@ export function BodyModel(props) {
         scale={0.24}
       >
         <mesh
-        onClick={changeColor}
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_003.geometry}
@@ -58,7 +62,7 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.13}
       >
-        <mesh onClick={changeColor}
+         <mesh onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_004.geometry}
@@ -70,7 +74,7 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.43}
       >
-        <mesh onClick={changeColor}
+         <mesh onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes["addominali-obliqui"].geometry}
@@ -82,7 +86,8 @@ export function BodyModel(props) {
         rotation={[Math.PI / 2, 0, -Math.PI]}
         scale={[0.43, 0.43, 0.3]}
       >
-        <mesh onClick={changeColor}
+        <mesh   
+        onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_007.geometry}
@@ -94,7 +99,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.3}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
           castShadow
           receiveShadow
           geometry={nodes.addome.geometry}
@@ -107,7 +113,8 @@ export function BodyModel(props) {
         scale={0.26}
       >
         <mesh 
-        onClick={changeColor}
+          onClick={handleModelClick}
+          name="Biceps"
           castShadow
           receiveShadow
           geometry={nodes.bicipiti.geometry}
@@ -119,7 +126,9 @@ export function BodyModel(props) {
         rotation={[-1.55, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh   
+        onClick={handleModelClick}
+        name="Forearms"
           castShadow
           receiveShadow
           geometry={nodes.avambracci.geometry}
@@ -127,7 +136,9 @@ export function BodyModel(props) {
         />
       </group>
       <group rotation={[-Math.PI / 2, 0, -Math.PI]} scale={0.26}>
-        <mesh onClick={changeColor}
+        <mesh   
+        onClick={handleModelClick}
+        name="Hamstrings"
           castShadow
           receiveShadow
           geometry={nodes["bicipiti-femorali"].geometry}
@@ -139,7 +150,9 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Calves"
           castShadow
           receiveShadow
           geometry={nodes.polpacci2.geometry}
@@ -151,7 +164,9 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh  
+         onClick={handleModelClick}
+         name="Deltoids"
           castShadow
           receiveShadow
           geometry={nodes.spalle3.geometry}
@@ -163,7 +178,9 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.13}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Trapezius"
           castShadow
           receiveShadow
           geometry={nodes.trapezio.geometry}
@@ -175,7 +192,9 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Back"
           castShadow
           receiveShadow
           geometry={nodes.dorsali.geometry}
@@ -187,20 +206,24 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.11}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+        name="Back"
+          onClick={handleModelClick}
           castShadow
           receiveShadow
           geometry={nodes.scapole2.geometry}
           material={materials["material 13"]}
         />
       </group>
-      <group onClick={changeColor}
+      <group 
+        onClick={handleModelClick}
         position={[0, 3.52, -0.15]}
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.11}
       >
         <mesh
-        onClick={changeColor}
+          onClick={handleModelClick}
+          name="Pecs"
           castShadow
           receiveShadow
           geometry={nodes.pettorali.geometry}
@@ -212,7 +235,8 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.13}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.collo.geometry}
@@ -224,7 +248,8 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_008_001.geometry}
@@ -236,7 +261,9 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.19}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Abdominals"
           castShadow
           receiveShadow
           geometry={nodes.addominali2.geometry}
@@ -248,7 +275,9 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.09}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Lower back"
           castShadow
           receiveShadow
           geometry={nodes.lombari.geometry}
@@ -260,7 +289,9 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.11}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Back"
           castShadow
           receiveShadow
           geometry={nodes.scapole.geometry}
@@ -272,7 +303,9 @@ export function BodyModel(props) {
         rotation={[Math.PI / 2, 0, -Math.PI]}
         scale={[0.43, 0.43, 0.3]}
       >
-        <mesh onClick={changeColor}
+        <mesh
+          onClick={handleModelClick}
+          name="Glutes"
           castShadow
           receiveShadow
           geometry={nodes.glutei.geometry}
@@ -284,7 +317,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.13}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.fianchi.geometry}
@@ -296,7 +330,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_013.geometry}
@@ -308,7 +343,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_014.geometry}
@@ -320,7 +356,9 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Deltoids"
           castShadow
           receiveShadow
           geometry={nodes.spalle2.geometry}
@@ -332,7 +370,9 @@ export function BodyModel(props) {
         rotation={[-1.52, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Deltoids"
           castShadow
           receiveShadow
           geometry={nodes.spalle1.geometry}
@@ -344,7 +384,8 @@ export function BodyModel(props) {
         rotation={[-1.55, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_017.geometry}
@@ -356,7 +397,8 @@ export function BodyModel(props) {
         rotation={[-1.55, 0, -Math.PI]}
         scale={0.13}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_018.geometry}
@@ -368,7 +410,9 @@ export function BodyModel(props) {
         rotation={[-1.55, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Forearms"
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_019.geometry}
@@ -380,7 +424,9 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Quadriceps"
           castShadow
           receiveShadow
           geometry={nodes.quadricipitiprinc.geometry}
@@ -392,7 +438,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_022.geometry}
@@ -404,7 +451,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_024.geometry}
@@ -416,7 +464,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.13}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_025.geometry}
@@ -428,7 +477,8 @@ export function BodyModel(props) {
         rotation={[-1.55, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes["tricipite-2"].geometry}
@@ -440,7 +490,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_028_001.geometry}
@@ -452,7 +503,9 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.3}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Abdominals"
           castShadow
           receiveShadow
           geometry={nodes.addominali.geometry}
@@ -464,7 +517,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_030.geometry}
@@ -476,7 +530,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.14}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_032.geometry}
@@ -488,7 +543,9 @@ export function BodyModel(props) {
         rotation={[-1.55, 0, -Math.PI]}
         scale={0.26}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={handleModelClick}
+          name="Triceps"
           castShadow
           receiveShadow
           geometry={nodes.tricipiti.geometry}
@@ -500,7 +557,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.07}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_068.geometry}
@@ -512,7 +570,8 @@ export function BodyModel(props) {
         rotation={[-Math.PI / 2, 0, -Math.PI]}
         scale={0.07}
       >
-        <mesh onClick={changeColor}
+        <mesh 
+          onClick={e => e.stopPropagation()}
           castShadow
           receiveShadow
           geometry={nodes.group_ME_Cube_069.geometry}
