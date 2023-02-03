@@ -5,7 +5,7 @@ import { FirstButton } from "../components/FirstButton";
 export default function Bmi() {
   const [info, setInfo] = useState({
     age: "",
-    gender: "Male",
+    gender: "male",
     height: "",
     weight: "",
     activitylevel: "level_2",
