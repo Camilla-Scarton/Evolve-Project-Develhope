@@ -1,7 +1,7 @@
 import { useLocation } from "react-router"
 
-export const ResultsBmi = () => {
-    let location = useLocation()
+export const ResultsBmi = (state) => {
+    const location = useLocation();
     let data = location.state.data
     return(
     <div className="w-full bg-gradient-to-tr drop-shadow-lg from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400 flex flex-col items-center justify-center">
