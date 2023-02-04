@@ -130,11 +130,17 @@ function Map() {
                     }}
                     onCloseClick={handleMapClick}
                 >
-                    <div className="p-4 text-sm bg-blue-900 rounded shadow-md ">
+                    <div className="p-4 text-sm bg-blue-900 rounded shadow-md text-center">
                         <h3 className="font-bold text-lg">{selectedPlace.name}</h3>
                         <p className="text-white">{selectedPlace.vicinity}</p>
                         <p className="text-white">Distance: {distance.toFixed(2)} km</p>
-                        <button onClick={() => getDirections(center, { lat: selectedPlace.geometry.location.lat(), lng: selectedPlace.geometry.location.lng() })} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">Get Directions</button>
+                        <div className="flex justify-center gap-4 responsive">
+                            <button onClick={() => getDirections(center, { lat: selectedPlace.geometry.location.lat(), lng: selectedPlace.geometry.location.lng() })} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">Get Directions</button>
+                            <button onClick={() => window.open(`https://www.google.com/maps/dir/${center.lat},${center.lng}/${selectedPlace.geometry.location.lat()},${selectedPlace.geometry.location.lng()}`)} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">
+                                Google Maps
+                            </button>
+                        </div>
+
                     </div>
                 </InfoWindow>
             )}
