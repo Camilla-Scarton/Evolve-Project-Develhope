@@ -3,37 +3,49 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Nanum+Gothic&family=Poppins&display=swap');
 
-*{font-family: 'Poppins', sans-serif;}
-
-h1{
-    @apply text-3xl sm:text-5xl font-bold
+* {
+    font-family: 'Poppins', sans-serif;
 }
 
-h2{
-    @apply text-2xl sm:text-4xl font-bold
+/* h1 {
+    @apply text-3xl sm: text-5xl font-bold
 }
 
-h3{
-    @apply text-xl sm:text-3xl font-bold
+h2 {
+    @apply text-2xl sm: text-4xl font-bold
 }
 
-h4{
-    @apply sm:text-2xl font-bold
+h3 {
+    @apply text-xl sm: text-3xl font-bold
 }
 
-h5{
-    @apply text-sm sm:text-xl font-bold
+h4 {
+    @apply sm: text-2xl font-bold
 }
 
-h6{
-    @apply text-xs sm:text-lg font-bold
+h5 {
+    @apply text-sm sm: text-xl font-bold
 }
 
-p{
-    @apply text-sm sm:text-lg 
+h6 {
+    @apply text-xs sm: text-lg font-bold
 }
+
+p {
+    @apply text-sm sm: text-lg
+} */
 
 .mapContainer {
     height: 100vh;
     width: 100vw;
+}
+
+
+
+@media (max-width: 480px) {
+    .responsive {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
 }
