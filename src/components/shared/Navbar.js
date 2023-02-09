@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
-    <navbar className="gap-5 z-10 flex items-center text-center sticky top-0 h-[60px] text-white bg-blue-900 dark:bg-purple-800">
+    <nav className="gap-5 z-10 flex items-center text-center sticky top-0 h-[60px] text-white bg-blue-900 dark:bg-purple-800">
       <img className="px-4 h-[90px]" src={logo3} alt="logo"/>
       <Link to="/">Home</Link>
       <>|</>
@@ -12,6 +12,6 @@ export function Navbar() {
       <Link to="/bmi">Daily calories</Link>
       <>|</>
       <Link to="/design">Design</Link>
-    </navbar>
+    </nav>
   );
 }
