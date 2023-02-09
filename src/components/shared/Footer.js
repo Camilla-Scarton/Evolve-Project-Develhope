@@ -3,7 +3,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export function Footer() {
   return (
-    <footer className="sticky bottom-0 w-full h-[45px] text-white bg-blue-900 dark:bg-purple-800 grid grid-cols-5 items-center text-center">
+    <footer className="bottom-0 w-full h-[45px] text-white bg-blue-900 dark:bg-purple-800 grid grid-cols-5 items-center text-center">
       <div>
         <span>Chiara Arrivas</span>
         <a href="https://github.com/ChiaraArrivas">

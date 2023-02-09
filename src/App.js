@@ -9,14 +9,16 @@ import { ResultsBmi } from "./pages/ResultsBmi";
 
 function App() {
   return (
-    <div className="App dark:bg-slate-900">
+    <div className="App dark:bg-slate-900 flex flex-col h-screen">
     <Navbar />
-    <Routes>      
+    <main className="grow">
+      <Routes>      
       <Route path="/map" element={<Map />}></Route>
       <Route path="/design" element={<Design />}></Route>
       <Route path="/bmi" element={<Bmi />}></Route>   
       <Route path="/bmi/results"  element={<ResultsBmi/>}/>
     </Routes>
+    </main>
     <Footer />
     </div>
   );
