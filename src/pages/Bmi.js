@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FirstButton } from "../components/FirstButton";
+import axios from "axios";
 
 export default function Bmi() {
   const [info, setInfo] = useState({
@@ -22,20 +23,24 @@ export default function Bmi() {
   const fetchData = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(
-        `https://fitness-calculator.p.rapidapi.com/dailycalorie?age=${info.age}&gender=${info.gender}&height=${info.height}&weight=${info.weight}&activitylevel=${info.activitylevel}`,
-        {
-          method: "GET",
-          headers: {
-            "X-RapidAPI-Key":
-              "47f4c893cemshf0974c486258b66p1ad651jsnc5044bc70078",
-            "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
-          },
-        }
-      );
-      const result = await response.json();
-      console.log(result.data);
-      navigation("/bmi/results", { state: { data: result.data } });
+      const response = await axios({
+        method: "GET",
+        url: "https://fitness-calculator.p.rapidapi.com/dailycalorie",
+        headers: {
+          "X-RapidAPI-Key":
+            "47f4c893cemshf0974c486258b66p1ad651jsnc5044bc70078",
+          "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
+        },
+        params: {
+          age: info.age,
+          gender: info.gender,
+          height: info.height,
+          weight: info.weight,
+          activitylevel: info.activitylevel,
+        },
+      });
+      console.log(response.data.data);
+      navigation("/bmi/results", { state: { data: response.data.data } });
     } catch (error) {
       console.error(error);
     }
