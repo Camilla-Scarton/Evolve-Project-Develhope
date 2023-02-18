@@ -3,12 +3,11 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { BodyModel } from "./BodyModel";
 import gsap from "gsap";
-
+import { Outlet } from "react-router";
 
 export default function FirstCanvas() {
   const cameraRef = useRef();
   const camRef = useRef();
-  
 
   function triggerAnimation({ x, y, z }) {
     gsap.to(cameraRef.current?.target, {
@@ -112,6 +111,7 @@ export default function FirstCanvas() {
           Zoom out
         </span>
       </button>
+      <Outlet />
     </div>
   );
 }
