@@ -11,6 +11,8 @@ export default function Bmi() {
     weight: "",
     activitylevel: "level_2",
   });
+  const [loading, setLoading] = useState(false);
+
   const navigation = useNavigate();
 
   const handleInput = (event) => {
@@ -20,29 +22,66 @@ export default function Bmi() {
     });
   };
 
+  //validazione numero intero
+
+  function isIntegerNum(num) {
+    return typeof parseInt(num) == "number" && num % 1 === 0;
+  }
+
+  //validazione form
+
+  const activityLevelOptions = [
+    "level_1",
+    "level_2",
+    "level_3",
+    "level_4",
+    "level_5",
+    "level_6",
+  ];
+
+  function validationForm(info) {
+    return (
+      isIntegerNum(info.age) &&
+      (info.gender === "male" || info.gender === "female") &&
+      isIntegerNum(info.height) &&
+      isIntegerNum(info.weight) &&
+      activityLevelOptions.includes(info.activitylevel)
+    );
+  }
+
   const fetchData = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios({
-        method: "GET",
-        url: "https://fitness-calculator.p.rapidapi.com/dailycalorie",
-        headers: {
-          "X-RapidAPI-Key":
-            "47f4c893cemshf0974c486258b66p1ad651jsnc5044bc70078",
-          "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
-        },
-        params: {
-          age: info.age,
-          gender: info.gender,
-          height: info.height,
-          weight: info.weight,
-          activitylevel: info.activitylevel,
-        },
-      });
-      console.log(response.data.data);
-      navigation("/bmi/results", { state: { data: response.data.data } });
-    } catch (error) {
-      console.error(error);
+    if (validationForm(info)) {
+      try {
+        setLoading(true);
+        const response = await axios({
+          method: "GET",
+          url: "https://fitness-calculator.p.rapidapi.com/dailycalorie",
+          headers: {
+            "X-RapidAPI-Key":
+              "47f4c893cemshf0974c486258b66p1ad651jsnc5044bc70078",
+            "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com",
+          },
+          params: {
+            age: info.age,
+            gender: info.gender,
+            height: info.height,
+            weight: info.weight,
+            activitylevel: info.activitylevel,
+          },
+        });
+        setLoading(false);
+        console.log(response.data.data);
+        navigation("/bmi/results", { state: { data: response.data.data } });
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.log(
+        alert(
+          "One or more fields may be incorrect. Fill in the form correctly."
+        )
+      );
     }
   };
 
@@ -127,7 +166,7 @@ export default function Bmi() {
             </option>
           </select>
         </label>
-
+        {loading && <p className="text-white">Loading..</p>}
         <FirstButton />
       </form>
     </div>
