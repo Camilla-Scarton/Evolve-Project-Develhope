@@ -1,4 +1,4 @@
-export function FirstButton() {
+export function FirstButton({name}) {
   return (
     <div>
       <button
@@ -8,7 +8,7 @@ export function FirstButton() {
             hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
             dark:to-blue-400 dark:from-violet-500  "
       >
-        <span>SUBMIT</span>
+        <span>{name}</span>
       </button>
     </div>
   );

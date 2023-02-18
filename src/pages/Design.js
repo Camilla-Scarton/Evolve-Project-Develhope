@@ -23,9 +23,9 @@ export function Design() {
     <div>
       <div className="w-full flex flex-wrap justify-between">
         <div className="flex-col">
-          <FirstButton />
-          <SecondButton />
-          <ThirdButton />
+          <FirstButton name="First Button"/>
+          <SecondButton name="Second Button"/>
+          <ThirdButton name="Third Button"/>
         </div>
         <div className="flex-col items-center gap-2 text-white w-[450px] h-full p-5 m-5  from-blue-300 via-blue-900 to-purple-400 rounded-md bg-gradient-to-tr dark:from-purple-300  dark:via-purple-700 dark:to-blue-400">
           <h3 className="flex text-xl items-center justify-center">LOGO:</h3>

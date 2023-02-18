@@ -2,8 +2,13 @@ import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import exercises from "../utilities/exercises";
 
+
+ 
+
 export function BodyModel(props) {
   const { nodes, materials } = useGLTF("/Neo.glb");
+   
+ 
 
   function handleModelClick(e) {
     e.stopPropagation();
@@ -19,8 +24,12 @@ export function BodyModel(props) {
     }
     e.object.material.color = { r: 1, g: 0, b: 0, isColor: true };
     props.triggerAnimation(e.object.parent.position);
-    console.log(exercises[e.object.name]);
+    console.log(exercises[e.object.name])  
   }
+
+  
+
+
 
   useEffect(() => {
     for (let i = 0; i <= 48; i++) {

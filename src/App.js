@@ -6,6 +6,7 @@ import Bmi from "./pages/Bmi";
 import { Footer } from "./components/shared/Footer";
 import { Navbar } from "./components/shared/Navbar";
 import { ResultsBmi } from "./pages/ResultsBmi";
+import { ExCard } from "./pages/Ex-card";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/design" element={<Design />}></Route>
       <Route path="/bmi" element={<Bmi />}></Route>   
       <Route path="/bmi/results"  element={<ResultsBmi/>}/>
+      <Route path="/ex-card"  element={<ExCard />}/>
     </Routes>
     <Footer />
     </div>

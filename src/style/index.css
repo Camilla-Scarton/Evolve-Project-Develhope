@@ -35,6 +35,10 @@ p {
     @apply text-sm sm: text-lg
 } */
 
+.scrollbar-hide::-webkit-scrollbar{
+    display: none
+}
+
 .mapContainer {
     height: 100vh;
     width: 100vw;
