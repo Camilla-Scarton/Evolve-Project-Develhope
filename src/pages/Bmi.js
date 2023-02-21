@@ -60,7 +60,6 @@ export default function Bmi() {
           />
         </label>
 
-        <br></br>
         <label className="m-3 text-white" htmlFor="gender">
           Gender:{" "}
           <select
@@ -75,7 +74,6 @@ export default function Bmi() {
           </select>
         </label>
 
-        <br></br>
         <label className="m-3 text-white" htmlFor="height">
           Height:{" "}
           <input
@@ -89,7 +87,6 @@ export default function Bmi() {
           />
         </label>
 
-        <br></br>
         <label className="m-3 text-white" htmlFor="weight">
           Weight:{" "}
           <input
@@ -103,7 +100,6 @@ export default function Bmi() {
           />
         </label>
 
-        <br></br>
         <label className="m-3 text-white" htmlFor="activitylevel">
           Activity Level:
           <select
@@ -126,7 +122,7 @@ export default function Bmi() {
             </option>
           </select>
         </label>
-        <br></br>
+
         <FirstButton />
       </form>
     </div>
