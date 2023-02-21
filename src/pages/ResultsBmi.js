@@ -1,8 +1,13 @@
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
 export const ResultsBmi = (state) => {
   const location = useLocation();
   let data = location.state.data;
+  let navigate = useNavigate();
+
   return (
     <div className="w-full bg-gradient-to-tr drop-shadow-lg from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400 flex flex-col items-center justify-center h-full">
       <h2 className="m-5  text-white">Goals: </h2>
@@ -40,6 +45,14 @@ export const ResultsBmi = (state) => {
         Maintain weight:
         <p>Calory: {Math.round(data.goals["maintain weight"])}</p>
       </h3>
+      <button onClick={() => navigate(-1)}>
+        {" "}
+        <FontAwesomeIcon
+          icon={faChevronLeft}
+          size="3x"
+          className="m-5 text-white"
+        />
+      </button>
     </div>
   );
 };
