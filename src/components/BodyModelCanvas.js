@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { BodyModel } from "./BodyModel";
 import gsap from "gsap";
+import { Outlet } from "react-router";
 
 export default function FirstCanvas() {
   const cameraRef = useRef();
@@ -43,7 +44,6 @@ export default function FirstCanvas() {
       <Suspense fallback={null}>
         <Canvas
           shadows
-          style={{ height: "550px" }}
           className="min-h-[500px] w-full h-full bg-[rgba(13,0,255,0.7)] bg-white dark:bg-slate-900 justify-center items-center"
         >
           <spotLight
@@ -110,6 +110,7 @@ export default function FirstCanvas() {
           Zoom out
         </span>
       </button>
+      <Outlet />
     </div>
   );
 }

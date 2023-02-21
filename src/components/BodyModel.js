@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import exercises from "../utilities/exercises";
+import { useNavigate } from "react-router";
 
 export function BodyModel(props) {
   const { nodes, materials } = useGLTF("/Neo.glb");
+  const navigate = useNavigate();
 
   function handleModelClick(e) {
     e.stopPropagation();
@@ -19,7 +21,7 @@ export function BodyModel(props) {
     }
     e.object.material.color = { r: 1, g: 0, b: 0, isColor: true };
     props.triggerAnimation(e.object.parent.position);
-    console.log(exercises[e.object.name]);
+    navigate(`${e.object.name}`);
   }
 
   useEffect(() => {

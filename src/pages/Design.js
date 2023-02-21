@@ -20,12 +20,11 @@ import "../style/button.css";
 
 export function Design() {
   return (
-    <div>
-      <div className="w-full flex flex-wrap justify-between">
+    <div className="flex flex-wrap justify-between">
         <div className="flex-col">
-          <FirstButton />
-          <SecondButton />
-          <ThirdButton />
+          <FirstButton name="First Button"/>
+          <SecondButton name="Second Button"/>
+          <ThirdButton name="Third Button"/>
         </div>
         <div className="flex-col items-center gap-2 text-white w-[450px] h-full p-5 m-5  from-blue-300 via-blue-900 to-purple-400 rounded-md bg-gradient-to-tr dark:from-purple-300  dark:via-purple-700 dark:to-blue-400">
           <h3 className="flex text-xl items-center justify-center">LOGO:</h3>
@@ -55,10 +54,9 @@ export function Design() {
           <p>Questo è un paragrafo</p>
         </div>
         <Card />
-      </div>
-      <div className="min-h-[500px] h-1/1 w-1/1 mx-auto">
-        <BodyModelCanvas />
-      </div>
+        <div className="min-h-[500px] h-[550px] w-[550px] h-1/1 w-1/1 mx-auto">
+          <BodyModelCanvas />
+        </div>
     </div>
   );
 }
