@@ -14,7 +14,7 @@ export function Card() {
                         </p>
                     </div>
                     <div className="px-6 pt-4 pb-2 flex items-center justify-center">
-                        <ThirdButton/>
+                        <ThirdButton name="Button"/>
                     </div>
             </div>
         </div>
