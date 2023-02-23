@@ -43,11 +43,11 @@ export function ExCard() {
   const slidesContainer = document.querySelector("#slider-container");
 
   function scrolldown() {
-    slidesContainer.scrollTop += 684;
+    slidesContainer.scrollTop += 588;
   }
 
   function scrollup() {
-    slidesContainer.scrollTop -= 684;
+    slidesContainer.scrollTop -= 588;
   }
 
   return (
