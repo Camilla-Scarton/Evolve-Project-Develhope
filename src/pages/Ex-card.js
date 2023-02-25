@@ -1,21 +1,23 @@
-import BodyModelCanvas from "../components/BodyModelCanvas";
 import exercises from "../utilities/exercises";
 import { createContext } from "react";
 import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../style/index.css";
 import { useParams } from "react-router";
+import useCarousel from "../hooks/useCarousel";
 
 export const contentCard = createContext({});
 
 export function ExCard() {
   const { bodyPart } = useParams();
+  
+
   const card = exercises[bodyPart].map((ex) => {
     return (
       <div
-        className="bg-gradient-to-tr drop-shadow-lg from-blue-300 via-blue-900 to-purple-400 sm:max-w-sm max-w-[240px] rounded-md overflow-y-auto 
-            shadow-lg mb-3 dark:from-purple-300  dark:via-purple-700 dark:to-blue-400 transition-all duration-200 hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600 p-3 h-128 scrollbar-hide "
-        id="slide"
+        className="bg-gradient-to-tr drop-shadow-lg from-blue-300 via-blue-900 to-purple-400 w-96 rounded-md overflow-y-auto 
+            shadow-lg mb-3 dark:from-purple-300  dark:via-purple-700 dark:to-blue-400 hover:h-67 hover:w-128 hover:shadow-xl transition-all duration-500 dark:shadow-slate-600 dark:hover:shadow-slate-600 p-3 h-41 scrollbar-hide "
+        id="slide" key={ex.name}
       >
         <h1 className="font-bold text-xl mb-2">{ex.name}</h1>
         <img
@@ -40,32 +42,24 @@ export function ExCard() {
     );
   });
 
-  const slidesContainer = document.querySelector("#slider-container");
-
-  function scrolldown() {
-    slidesContainer.scrollTop += 588;
-  }
-
-  function scrollup() {
-    slidesContainer.scrollTop -= 588;
-  }
+const { nextCard, prevCard, currentItem } = useCarousel(card)
 
   return (
-    <div className="absolute h-67 top-12 right-12 flex flex-col items-center">
+    <div className="absolute h-67 top-12 right-40 flex flex-col items-center">
       <button
-        onClick={scrollup}
+        onClick={prevCard}
         className="shadow-xl text-white rounded-md px-5 w-[250px] py-2 mb-2 mt-5 bg-gradient-to-r from-blue-900 to-purple-800 hover:from-purple-800 hover:to-blue-900  dark:hover:from-blue-400 dark:hover:to-violet-500 hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)] dark:to-blue-400 dark:from-violet-500"
       >
         ^
       </button>
       <div
-        className="relative overflow-y-scroll h-128 scrollbar-hide scroll-smooth"
+        className="relative h-128 transition-all"
         id="slider-container"
       >
-        {card}
+        {currentItem}
       </div>
       <button
-        onClick={scrolldown}
+        onClick={nextCard}
         className="shadow-xl text-white rounded-md px-5 w-[250px] py-2 mt-2  bg-gradient-to-r from-blue-900 to-purple-800 hover:from-purple-800 hover:to-blue-900  dark:hover:from-blue-400 dark:hover:to-violet-500 hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)] dark:to-blue-400 dark:from-violet-500"
       >
         v
