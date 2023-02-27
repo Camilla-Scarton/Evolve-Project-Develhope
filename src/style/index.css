@@ -19,33 +19,33 @@ body {
     width: 100vw;
 }
 
-/* h1 {
-    @apply text-3xl sm: text-5xl font-bold
+h1 {
+    @apply text-3xl sm:text-5xl font-bold
 }
 
 h2 {
-    @apply text-2xl sm: text-4xl font-bold
+    @apply text-2xl sm:text-4xl font-bold
 }
 
 h3 {
-    @apply text-xl sm: text-3xl font-bold
+    @apply text-xl sm:text-3xl font-bold
 }
 
 h4 {
-    @apply sm: text-2xl font-bold
+    @apply sm:text-2xl font-bold
 }
 
 h5 {
-    @apply text-sm sm: text-xl font-bold
+    @apply text-sm sm:text-xl font-bold
 }
 
 h6 {
-    @apply text-xs sm: text-lg font-bold
+    @apply text-xs sm:text-lg font-bold
 }
 
 p {
-    @apply text-sm sm: text-lg
-} */
+    @apply text-sm sm:text-lg
+}
 
 .scrollbar-hide::-webkit-scrollbar{
     display: none

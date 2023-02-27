@@ -3,9 +3,9 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export function Footer() {
   return (
-    <footer className="bottom-0 w-full h-20 text-white bg-blue-900 dark:bg-purple-800 grid grid-cols-5 items-center text-center">
+    <footer className="bottom-0 w-full h-20 text-white dark:text-gray-200 bg-blue-900 dark:bg-purple-800 grid grid-cols-5 items-center text-center">
       <div>
-        <span>Chiara Arrivas</span>
+        <h6>Chiara Arrivas</h6>
         <div>
           <a href="https://github.com/ChiaraArrivas">
             <FontAwesomeIcon icon={faGithub} size="1x" className="mx-1" />
@@ -17,7 +17,7 @@ export function Footer() {
       </div>
       <div>
         
-        <span>Marco Incardona</span>
+        <h6>Marco Incardona</h6>
         <div>
           <a href="https://github.com/MarcoIncardona">
             <FontAwesomeIcon icon={faGithub} size="1x" className="mx-1" />
@@ -29,7 +29,7 @@ export function Footer() {
       </div>
 
       <div>
-        <span>Simone Mazza</span>
+        <h6>Simone Mazza</h6>
         <div>
           <a href="https://github.com/smazza98">
             <FontAwesomeIcon icon={faGithub} size="1x" className="mx-1" />
@@ -41,7 +41,7 @@ export function Footer() {
       </div>
 
       <div>
-        <span>Camilla Scarton</span>
+        <h6>Camilla Scarton</h6>
         <div>
           <a href="https://github.com/Camilla-Scarton">
             <FontAwesomeIcon icon={faGithub} size="1x" className="mx-1" />
@@ -53,7 +53,7 @@ export function Footer() {
       </div>
 
       <div>
-        <span>Salvatore Vella</span>
+        <h6>Salvatore Vella</h6>
         <div>
           <a href="https://github.com/SalvatoreVella">
             <FontAwesomeIcon icon={faGithub} size="1x" className="mx-1" />
