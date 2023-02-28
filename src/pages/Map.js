@@ -1,5 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow, DirectionsRenderer } from "@react-google-maps/api";
+import { FirstButton } from "../components/FirstButton";
 
 export default function Home() {
     const { isLoaded } = useLoadScript({
@@ -130,13 +131,19 @@ function Map() {
                     }}
                     onCloseClick={handleMapClick}
                 >
-                    <div className="p-4 text-sm bg-blue-900 rounded shadow-md text-center">
+                    <div className="p-4 text-sm bg-blue-900 dark:bg-purple-800 rounded shadow-md text-center">
                         <h3 className="font-bold text-lg">{selectedPlace.name}</h3>
                         <p className="text-white">{selectedPlace.vicinity}</p>
                         <p className="text-white">Distance: {distance.toFixed(2)} km</p>
                         <div className="flex justify-center gap-4 responsive">
-                            <button onClick={() => getDirections(center, { lat: selectedPlace.geometry.location.lat(), lng: selectedPlace.geometry.location.lng() })} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">Get Directions</button>
-                            <button onClick={() => window.open(`https://www.google.com/maps/dir/${center.lat},${center.lng}/${selectedPlace.geometry.location.lat()},${selectedPlace.geometry.location.lng()}`)} className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">
+                            <button onClick={() => getDirections(center, { lat: selectedPlace.geometry.location.lat(), lng: selectedPlace.geometry.location.lng() })} className="drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 m-5  hover:from-blue-300
+            from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
+            hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
+            dark:to-blue-400 dark:from-violet-500 ">Get Directions</button>
+                            <button onClick={() => window.open(`https://www.google.com/maps/dir/${center.lat},${center.lng}/${selectedPlace.geometry.location.lat()},${selectedPlace.geometry.location.lng()}`)} className="drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 m-5  hover:from-blue-300
+            from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
+            hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
+            dark:to-blue-400 dark:from-violet-500 ">
                                 Google Maps
                             </button>
                         </div>
