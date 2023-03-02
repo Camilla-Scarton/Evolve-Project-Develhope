@@ -70,6 +70,24 @@ p {
     width: 100%;
 }
 
+.scrollbar::-webkit-scrollbar{
+    width: 11px;
+}
+
+.scrollbar::-webkit-scrollbar-track{
+    background: #f1f1f1;
+    border-radius: 2rem;
+}
+
+.scrollbar::-webkit-scrollbar-thumb{
+    background: #4282ea;
+    border-radius: 2rem;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover{
+    background: #9a1fe2;
+}
+
 
 
 @media (max-width: 480px) {
