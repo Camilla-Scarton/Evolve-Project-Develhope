@@ -3,10 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
     extend: {
-      transition: {tutte:"transition: background-image 0.3s"},
-      height:{
+      transition: { tutte: "transition: background-image 0.3s" },
+      height: {
         "128": "36rem",
-        "67" : "47rem"
+        "67": "47rem"
       },
     },
   },
