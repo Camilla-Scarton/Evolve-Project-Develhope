@@ -137,10 +137,10 @@ function Map() {
           }}
           onCloseClick={handleMapClick}
         >
-          <div className="p-4 text-sm bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:bg-purple-800 rounded shadow-md text-center">
-            <h3 className="font-bold text-white text-lg">{selectedPlace.name}</h3>
-            <p className="text-white">{selectedPlace.vicinity}</p>
-            <p className="text-white">Distance: {distance.toFixed(2)} km</p>
+          <div className="dark:text-gray-200 p-4 text-sm bg-gradient-to-tr drop-shadow-lg shadow-lg dark:from-purple-400  dark:via-purple-700 dark:to-blue-400 from-blue-400 via-blue-900 to-purple-400 hover:shadow-xl transition-all duration-500 dark:shadow-slate-600 dark:hover:shadow-slate-600 rounded shadow-md text-center">
+            <h3 className="dark:text-gray-200 font-bold text-white text-lg">{selectedPlace.name}</h3>
+            <p className="dark:text-gray-200 text-white">{selectedPlace.vicinity}</p>
+            <p className="dark:text-gray-200 text-white">Distance: {distance.toFixed(2)} km</p>
             <div className="flex justify-center gap-4 responsive">
               <button
                 onClick={() =>
