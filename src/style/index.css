@@ -19,6 +19,20 @@ body {
     width: 100vw;
 }
 
+.animation {
+    animation: slide 300ms ease-in-out;
+    right: 3rem;
+}
+
+@keyframes slide {
+    0% {
+        right: -30rem;
+    }
+    100% {
+        right: 3rem;
+    }
+}
+
 /* h1 {
     @apply text-3xl sm: text-5xl font-bold
 }

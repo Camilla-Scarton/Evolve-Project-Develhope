@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
-import exercises from "../utilities/exercises";
 import { useNavigate } from "react-router";
 
 export function BodyModel(props) {

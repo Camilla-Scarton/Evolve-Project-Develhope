@@ -13,6 +13,7 @@ export function ExCard() {
   const card = exercises[bodyPart].map((ex) => {
     return (
       <div
+        key={ex.image}
         className="bg-gradient-to-tr drop-shadow-lg from-blue-300 via-blue-900 to-purple-400 sm:max-w-sm max-w-[240px] rounded-md overflow-y-auto 
             shadow-lg mb-3 dark:from-purple-300  dark:via-purple-700 dark:to-blue-400 transition-all duration-200 hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600 p-3 h-128 scrollbar-hide "
         id="slide"
@@ -51,7 +52,7 @@ export function ExCard() {
   }
 
   return (
-    <div className="absolute h-67 top-12 right-12 flex flex-col items-center">
+    <div className="absolute h-67 top-[8.5vh] animation flex flex-col items-center">
       <button
         onClick={scrollup}
         className="shadow-xl text-white rounded-md px-5 w-[250px] py-2 mb-2 mt-5 bg-gradient-to-r from-blue-900 to-purple-800 hover:from-purple-800 hover:to-blue-900  dark:hover:from-blue-400 dark:hover:to-violet-500 hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)] dark:to-blue-400 dark:from-violet-500"
