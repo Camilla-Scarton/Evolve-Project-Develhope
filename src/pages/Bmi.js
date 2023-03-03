@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { FirstButton } from "../components/FirstButton";
 import axios from "axios";
+import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Bmi() {
   const [info, setInfo] = useState({
@@ -13,7 +14,7 @@ export default function Bmi() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigation = useNavigate();
+  const [response, setResponse] = useState(null);
 
   const handleInput = (event) => {
     setInfo({
@@ -21,6 +22,18 @@ export default function Bmi() {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handlereset = (event) => {
+    setInfo({
+      age: "",
+      gender: "male",
+      height: "",
+      weight: "",
+      activitylevel: "level_2",
+    });
+    setResponse(null)
+    setError(null)
+  }
 
   //validazione numero intero
 
@@ -72,7 +85,7 @@ export default function Bmi() {
     if (validationForm(info)) {
       try {
         setLoading(true);
-        const response = await axios({
+        const responsee = await axios({
           method: "GET",
           url: "https://fitness-calculator.p.rapidapi.com/dailycalorie",
           headers: {
@@ -89,8 +102,8 @@ export default function Bmi() {
           },
         });
         setLoading(false);
-        console.log(response.data.data);
-        navigation("/bmi/results", { state: { data: response.data.data } });
+        setResponse(responsee)
+        console.log(responsee.data.data.goals);
       } catch (err) {
         setError(err)
         console.error(err);
@@ -99,7 +112,7 @@ export default function Bmi() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full 
+    <div className="flex items-center justify-center h-full w-full 
     bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700
      dark:to-blue-400">
       <div className="p-2 m-3  rounded-sm">
@@ -183,7 +196,14 @@ export default function Bmi() {
             </select>
           </label>
           {loading && <p className="text-white">Loading...</p>}
-          <FirstButton name={"SUBMIT"} />
+          <div className="flex justify-center items-center">
+            <FirstButton name={"SUBMIT"} />
+            <button type="reset" onClick={handlereset} className="drop-shadow-xl text-white bg-gradient-to-r rounded-full px-4 py-3 m-5 
+            from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
+            hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
+            dark:to-blue-400 dark:from-violet-500 ">
+              <FontAwesomeIcon icon={faRotateLeft} size="1x" /></button>
+          </div>
           {error && <div ><div class="bg-red-700 text-white font-bold rounded-t px-4 py-2">
             Danger
           </div>
@@ -192,6 +212,44 @@ export default function Bmi() {
             </div></div>}
         </form>
       </div>
+      {response && <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col">
+          <div className="flex">
+            <div className="flex flex-col ml-0">
+              <div className="flex flex-col justify-center items-center">
+                <h2 className="m-5  text-white">Goals</h2>
+              </div>
+              <h3 className="m-1  text-white">Extreme weight gain:</h3>
+              <h3 className="m-1  text-white">Extreme weight loss:</h3>
+              <h3 className="m-1  text-white">Mild weight gain:</h3>
+              <h3 className="m-1  text-white">Mild weight loss:</h3>
+              <h3 className="m-1 text-white">Weight gain:</h3>
+              <h3 className="m-1  text-white">Weight loss:</h3>
+              <h3 className="m-1  text-white">Maintain weight:</h3>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <h2 className="m-1 text-white">Calory</h2>
+              <h3 className="m-1  text-white"> {Math.round(response.data.data.goals["Extreme weight gain"].calory)}</h3>
+              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Extreme weight loss"].calory)}</h3>
+              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Mild weight gain"].calory)}</h3>
+              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Mild weight loss"].calory)}</h3>
+              <h3 className="m-1 text-white">{Math.round(response.data.data.goals["Weight gain"].calory)}</h3>
+              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Weight loss"].calory)}</h3>
+              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["maintain weight"])}</h3>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <h2 className="m-1  text-white">Weight</h2>
+              <h3 className="m-1  text-white">+{response.data.data.goals["Extreme weight gain"]["gain weight"]}</h3>
+              <h3 className="m-1  text-white">-{response.data.data.goals["Extreme weight loss"]["loss weight"]}</h3>
+              <h3 className="m-1  text-white">+{response.data.data.goals["Mild weight gain"]["gain weight"]}</h3>
+              <h3 className="m-1  text-white">-{response.data.data.goals["Mild weight loss"]["loss weight"]}</h3>
+              <h3 className="m-1  text-white">+{response.data.data.goals["Weight gain"]["gain weight"]}</h3>
+              <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
+              <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
+            </div>
+          </div>
+        </div>
+      </div>}
     </div>
   );
 }
