@@ -102,7 +102,7 @@ export default function Bmi() {
     <div className="flex flex-col items-center justify-center h-full w-full 
     bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700
      dark:to-blue-400">
-      <div className="p-2 m-3  rounded-sm   hover:shadow-inner hover:shadow-indigo-200 hover:transition-all duration-300">
+      <div className="p-2 m-3  rounded-sm">
         <form
           className="flex flex-col items-center justify-center"
           onSubmit={fetchData}
