@@ -14,10 +14,6 @@ body {
     padding: 0;
 }
 
-body {
-    height: 100vh;
-    width: 100vw;
-}
 
 .animation {
     animation: slide 300ms ease-in-out;
@@ -80,14 +76,19 @@ p {
 }
 
 .scrollbar::-webkit-scrollbar-thumb{
-    background: #4282ea;
+    background: linear-gradient(#c084fc, #7e22ce ) ;
     border-radius: 2rem;
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover{
-    background: #9a1fe2;
+    background: linear-gradient(#7e22ce, #c084fc) ;
 }
 
+.grow{
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+}
 
 
 @media (max-width: 480px) {
