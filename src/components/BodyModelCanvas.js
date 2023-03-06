@@ -102,7 +102,7 @@ export default function FirstCanvas() {
       <div
         ref={canvasRef2}
         key="Canvas"
-        className="min-h-[500px] h-[87vh] relative w-full"
+        className="min-h-[500px] h-[83vh] relative w-full"
       >
         <Suspense fallback={null}>
           <Canvas
