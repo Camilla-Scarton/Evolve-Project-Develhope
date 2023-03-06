@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { FirstButton } from "../components/FirstButton";
 import axios from "axios";
 import { faRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,8 +30,8 @@ export default function Bmi() {
       weight: "",
       activitylevel: "level_2",
     });
-    setResponse(null)
-    setError(null)
+    setResponse(null);
+    setError(null);
   }
 
   //validazione numero intero
@@ -115,7 +114,7 @@ export default function Bmi() {
     <div className="flex items-center justify-center h-full w-full 
     bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700
      dark:to-blue-400">
-      <div className="p-2 m-3  rounded-sm">
+      <div className="p-2 m-3 rounded-sm">
         <form
           className="flex flex-col items-center justify-center"
           onSubmit={fetchData}
@@ -123,7 +122,7 @@ export default function Bmi() {
           <label className="m-3 text-white p-2" htmlFor="age">
             Age:{" "}
             <input
-              className="bg-[#ffffff4f] rounded-sm m-3"
+              className="pl-2 bg-[#ffffff4f] rounded-sm m-3"
               required
               type="number"
               id="age"
@@ -136,7 +135,7 @@ export default function Bmi() {
           <label className="m-3 text-white p-2" htmlFor="gender">
             Gender:{" "}
             <select
-              className="bg-[#ffffff4f] text-black rounded-sm m-3"
+              className="pl-2 bg-[#ffffff4f] text-black rounded-sm m-3"
               name="gender"
               id="gender"
               value={info.gender}
@@ -150,7 +149,7 @@ export default function Bmi() {
           <label className="m-3 text-white p-2" htmlFor="height">
             Height:{" "}
             <input
-              className="bg-[#ffffff4f] rounded-sm m-3"
+              className="pl-2 bg-[#ffffff4f] rounded-sm m-3"
               required
               type="number"
               id="height"
@@ -163,7 +162,7 @@ export default function Bmi() {
           <label className="m-3 text-white p-2" htmlFor="weight">
             Weight:{" "}
             <input
-              className="bg-[#ffffff4f] rounded-sm m-3"
+              className="pl-2 bg-[#ffffff4f] rounded-sm m-3"
               required
               type="number"
               id="weight"
@@ -176,7 +175,7 @@ export default function Bmi() {
           <label className="m-3 text-white p-2" htmlFor="activitylevel">
             Activity Level:
             <select
-              className="bg-[#ffffff4f] text-black rounded-sm m-3"
+              className="pl-2 bg-[#ffffff4f] text-black rounded-sm m-3"
               name="activitylevel"
               id="activitylevel"
               value={info.activitylevel}
@@ -197,7 +196,14 @@ export default function Bmi() {
           </label>
           {loading && <p className="text-white">Loading...</p>}
           <div className="flex justify-center items-center">
-            <FirstButton name={"SUBMIT"} />
+            <button
+              type="submit"
+              className="drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 m-5 
+            from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
+            hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
+            dark:to-blue-400 dark:from-violet-500">
+              <span>SUBMIT</span>
+            </button>
             <button type="reset" onClick={handlereset} className="drop-shadow-xl text-white bg-gradient-to-r rounded-full px-4 py-3 m-5 
             from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
             hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
@@ -228,7 +234,9 @@ export default function Bmi() {
               <h3 className="m-1  text-white">Maintain weight:</h3>
             </div>
             <div className="flex flex-col justify-center items-center">
-              <h2 className="m-1 text-white">Calory</h2>
+              <div className="flex flex-col justify-center items-center">
+                <h2 className="m-5 text-white">Calory</h2>
+              </div>
               <h3 className="m-1  text-white"> {Math.round(response.data.data.goals["Extreme weight gain"].calory)}</h3>
               <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Extreme weight loss"].calory)}</h3>
               <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Mild weight gain"].calory)}</h3>
@@ -238,7 +246,9 @@ export default function Bmi() {
               <h3 className="m-1  text-white">{Math.round(response.data.data.goals["maintain weight"])}</h3>
             </div>
             <div className="flex flex-col justify-center items-center">
-              <h2 className="m-1  text-white">Weight</h2>
+              <div className="flex flex-col justify-center items-center">
+                <h2 className="m-5  text-white">Weight</h2>
+              </div>
               <h3 className="m-1  text-white">+{response.data.data.goals["Extreme weight gain"]["gain weight"]}</h3>
               <h3 className="m-1  text-white">-{response.data.data.goals["Extreme weight loss"]["loss weight"]}</h3>
               <h3 className="m-1  text-white">+{response.data.data.goals["Mild weight gain"]["gain weight"]}</h3>
