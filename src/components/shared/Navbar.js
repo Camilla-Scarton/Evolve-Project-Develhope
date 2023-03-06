@@ -31,7 +31,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="flex items-center text-center sticky top-0 h-[10vh] text-white dark:text-gray-200 bg-blue-900 dark:bg-purple-800 place-content-around">
+    <nav className="flex items-center text-center h-[8vh] text-white dark:text-gray-200 bg-blue-900 dark:bg-purple-800 place-content-around">
       <img className="px-4 h-[90px]" src={theme === "light" ? logo3 : logo3Dark} alt="logo"/>
       <div className="flex gap-7 items-center">
         <Link to="/"><h6>Home</h6></Link>
