@@ -1,5 +1,4 @@
 import logo3 from "../../assets/logo3.png";
-import logo3Dark from "../../assets/logo3Dark.png";
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,15 +31,13 @@ export function Navbar() {
 
   return (
     <nav className="flex items-center text-center h-[8vh] text-white dark:text-gray-200 bg-blue-900 dark:bg-purple-800 place-content-around">
-      <img className="px-4 h-[90px]" src={theme === "light" ? logo3 : logo3Dark} alt="logo"/>
+      <img className="px-4 h-[90px]" src={logo3} alt="logo"/>
       <div className="flex gap-7 items-center">
-        <Link to="/"><h6>Home</h6></Link>
+        <Link to="/" onClick={() => window.reload()}><h6>Home</h6></Link>
         <>|</>
         <Link to="/map"><h6>Nearest gyms</h6></Link>
         <>|</>
         <Link to="/bmi"><h6>Daily calories</h6></Link>
-        <>|</>
-        <Link to="/design"><h6>Design</h6></Link>
         <>|</>
         <button onClick={handleThemeChange}>
           {theme === "light" ? <FontAwesomeIcon icon={faToggleOff} size="2x" /> : <FontAwesomeIcon icon={faToggleOn} size="2x" />}

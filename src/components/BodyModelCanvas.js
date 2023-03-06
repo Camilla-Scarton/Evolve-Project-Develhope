@@ -163,12 +163,13 @@ export default function FirstCanvas() {
             </mesh>
           </Canvas>
         </Suspense>
-        <button className="absolute bottom-1 left-1 inline-flex items-center justify-center p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-purple-500">
-          <span className="absolute inline-block inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-700"></span>
-          <span className="absolute inline-block bottom-0 right-0  w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-500 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
+        <button className="absolute bottom-1 left-1 inline-flex items-center justify-center overflow-hidden font-medium transition duration-300 ease-out rounded-full group">
           <span
             onClick={handlePosition}
-            className="relative inline-block text-white"
+            className="relative inline-block drop-shadow-xl text-white bg-gradient-to-r rounded-md px-10 py-2 m-5 
+            from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
+            hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
+            dark:to-blue-400 dark:from-violet-500"
           >
             Zoom out
           </span>
