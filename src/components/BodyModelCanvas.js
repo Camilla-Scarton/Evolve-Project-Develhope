@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState, } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import { BodyModel } from "./BodyModel";
@@ -12,6 +12,8 @@ export default function FirstCanvas() {
   const canvasRef2 = useRef();
   const { bodyPart } = useParams();
   const [isBodypartSelected, setisBodypartSelected] = useState(false);
+
+
 
   const body = document.body;
   function triggerAnimation({ x, y, z }) {
@@ -31,19 +33,20 @@ export default function FirstCanvas() {
         { x: 1 },
         {
           duration: 0.3,
-          x: 0.5,
+          x: 0.9,
           ease: Power1.easeInOut,
         }
-      );
-    } else {
+        );
+        gsap.set(canvasRef2.current, {
+          delay: 0.3,
+          width: "50%",
+        });
+        gsap.set(camRef.current.scale, {
+          delay: 0.3,
+          x: 1,
+        });
+    } 
       console.log("triggerato else");
-      gsap.set(canvasRef2.current, {
-        width: "50%",
-      });
-      gsap.set(camRef.current.scale, {
-        x: 1,
-      });
-    }
     gsap.to(cameraRef.current?.target, {
       duration: 0.3,
       y: y - 2,
@@ -51,7 +54,7 @@ export default function FirstCanvas() {
       z: z,
       ease: Power1.easeInOut,
     });
-
+  
     gsap.to(cameraRef.current, {
       duration: 0.3,
       maxDistance: 4,
@@ -88,15 +91,7 @@ export default function FirstCanvas() {
     }
   }, [bodyPart, isBodypartSelected]);
 
-  if (camRef.current && !isBodypartSelected) {
-    /* gsap.set(canvasRef2.current, {
-      width: "100%",
-    }); */
-    gsap.set(camRef.current.scale, {
-      x: 1,
-    });
-    console.log("triggerato if");
-  }
+
   return (
     <>
       <div
