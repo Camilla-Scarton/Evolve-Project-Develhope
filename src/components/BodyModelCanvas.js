@@ -13,12 +13,11 @@ export default function FirstCanvas() {
   const { bodyPart } = useParams();
   const [isBodypartSelected, setisBodypartSelected] = useState(false);
 
-
-
   const body = document.body;
+  
+  
   function triggerAnimation({ x, y, z }) {
     if (!isBodypartSelected) {
-      console.log("triggerata animazione");
       gsap.fromTo(
         canvasRef.current,
         { width: body.clientWidth },
@@ -30,23 +29,17 @@ export default function FirstCanvas() {
       );
       gsap.fromTo(
         camRef.current.scale,
-        { x: 1 },
+        {x: 1},
         {
           duration: 0.3,
-          x: 0.9,
+          x: 1,
           ease: Power1.easeInOut,
         }
-        );
-        gsap.set(canvasRef2.current, {
-          delay: 0.3,
-          width: "50%",
-        });
-        gsap.set(camRef.current.scale, {
-          delay: 0.3,
-          x: 1,
-        });
+      )
+      gsap.set(canvasRef2.current,
+        { width: "50%" });
     } 
-      console.log("triggerato else");
+      console.log("triggerata animazione");
     gsap.to(cameraRef.current?.target, {
       duration: 0.3,
       y: y - 2,
@@ -61,6 +54,7 @@ export default function FirstCanvas() {
       ease: Power1.easeInOut,
     });
   }
+
   function handlePosition() {
     gsap.to(cameraRef.current?.target, {
       duration: 1,
