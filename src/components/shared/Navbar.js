@@ -39,6 +39,8 @@ export function Navbar() {
         <>|</>
         <Link to="/bmi"><h6>Daily calories</h6></Link>
         <>|</>
+        <Link to="login"><h6>Login</h6></Link>
+        <>|</>
         <button onClick={handleThemeChange}>
           {theme === "light" ? <FontAwesomeIcon icon={faToggleOff} size="2x" /> : <FontAwesomeIcon icon={faToggleOn} size="2x" />}
         </button>

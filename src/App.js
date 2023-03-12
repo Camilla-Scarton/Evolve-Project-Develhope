@@ -6,6 +6,8 @@ import Bmi from "./pages/Bmi";
 import { Footer } from "./components/shared/Footer";
 import { Navbar } from "./components/shared/Navbar";
 import { ExCard } from "./pages/Ex-card";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 import FirstCanvas from "./components/BodyModelCanvas";
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" element={<FirstCanvas />}>
             <Route path=":bodyPart" element={<ExCard />} />
           </Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </main>
       <Footer />
