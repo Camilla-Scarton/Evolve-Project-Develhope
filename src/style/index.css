@@ -98,3 +98,26 @@ p {
         gap: 0;
     }
 }
+
+#daily-calories::placeholder,
+#meal-number::placeholder,
+#carb-distribution::placeholder,
+#fat-distribution::placeholder,
+#protein-distribution::placeholder {
+    color: white;
+}
+
+
+nav .mobile-navigation {
+    display: none;
+}
+
+@media (max-width: 990px) {
+    nav .navigation {
+        display: none;
+    }
+
+    nav .mobile-navigation {
+        display: flex;
+    } 
+}
