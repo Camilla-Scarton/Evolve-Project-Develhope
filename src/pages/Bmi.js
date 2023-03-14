@@ -37,7 +37,7 @@ export default function Bmi() {
   //validazione numero intero
 
   function isIntegerNum(num) {
-    if (typeof parseInt(num) == "number" && num % 1 === 0) {
+    if (typeof parseInt(num) == "number" && num % 1 === 0 && num >= 1) {
       return true
     }
   }
@@ -258,7 +258,7 @@ export default function Bmi() {
             </div>
             <div className="flex flex-col justify-center items-center">
               <div className="flex flex-col justify-center items-center">
-                <h2 className="m-5  text-white">Weight</h2>
+                <h2 className="m-5 text-white">Weight</h2>
               </div>
               <h3 className="m-1  text-white">+{response.data.data.goals["Extreme weight gain"]["gain weight"]}</h3>
               <h3 className="m-1  text-white">-{response.data.data.goals["Extreme weight loss"]["loss weight"]}</h3>
@@ -266,7 +266,7 @@ export default function Bmi() {
               <h3 className="m-1  text-white">-{response.data.data.goals["Mild weight loss"]["loss weight"]}</h3>
               <h3 className="m-1  text-white">+{response.data.data.goals["Weight gain"]["gain weight"]}</h3>
               <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
-              <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
+              <h3 className="m-1  text-white">-</h3>
             </div>
           </div>
         </div>
