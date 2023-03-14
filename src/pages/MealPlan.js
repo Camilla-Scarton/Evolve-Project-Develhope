@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-// TODO mettere slide per le calorie / mettere select per i pasti / mettere le percentuali giuste
-// per il select: https://react-select.com/home
+// TODO slider con 2 punti per le percentuali di carboidrati, proteine e grassi con material UI
+// https://mui.com/material-ui/react-slider/
 // TODO fare chiamata fetch / impostare la pagina dei risultati
 // per i risultati: https://rapidapi.com/FatSecret/api/fatsecret1
 
@@ -84,56 +84,21 @@ export const MealPlan = () => {
             <strong>daily</strong>?
           </p>
           <div className="p-2 mx-auto max-w-full w-[260px] flex flex-row flex-wrap justify-between">
-            <button
-              name="1"
-              type="button"
-              className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
-                borders[0] ? "border-white" : "border-transparent"
-              }`}
-              onClick={handleMealClick}
-            >
-              {borders[0] ? <strong>1</strong> : 1}
-            </button>
-            <button
-              name="2"
-              type="button"
-              className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
-                borders[1] ? "border-white" : "border-transparent"
-              }`}
-              onClick={handleMealClick}
-            >
-              {borders[1] ? <strong>2</strong> : 2}
-            </button>
-            <button
-              name="3"
-              type="button"
-              className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
-                borders[2] ? "border-white" : "border-transparent"
-              }`}
-              onClick={handleMealClick}
-            >
-              {borders[2] ? <strong>3</strong> : 3}
-            </button>
-            <button
-              name="4"
-              type="button"
-              className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
-                borders[3] ? "border-white" : "border-transparent"
-              }`}
-              onClick={handleMealClick}
-            >
-              {borders[3] ? <strong>4</strong> : 4}
-            </button>
-            <button
-              name="5"
-              type="button"
-              className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
-                borders[4] ? "border-white" : "border-transparent"
-              }`}
-              onClick={handleMealClick}
-            >
-              {borders[4] ? <strong>5</strong> : 5}
-            </button>
+            {borders.map((borderValue, i) => {
+              return (
+                <button
+                  key={`key-${i+1}`}
+                  name={i+1}
+                  type="button"
+                  className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
+                  borderValue ? "border-white" : "border-transparent"
+                }`}
+                onClick={handleMealClick}
+                >
+                {borderValue ? <strong>{i+1}</strong> : i+1}
+                </button>
+              )
+            })}
           </div>
         </div>
 
