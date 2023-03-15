@@ -56,19 +56,17 @@ export const MealPlan = () => {
 
   const [values, setValues] = useState([45, 75]);
   
-  const minDistance = 10;
-  
   const handleSliderChange = (event, newValue, activeThumb) => {
-    if (newValue[2] - newValue[1] < minDistance) {
+    if (newValue[2] - newValue[1] < 10) {
       if (activeThumb === 1) {
-        const clamped = Math.min(newValue[1], 100 - minDistance);
-        setValues([clamped, clamped + minDistance]);
+        const clamped = Math.min(newValue[1], 80);
+        setValues([clamped, clamped + 10]);
       } else {
-        const clamped = Math.max(newValue[2], minDistance);
-        setValues([clamped - minDistance, clamped]);
+        const clamped = Math.max(newValue[2], 20);
+        setValues([clamped - 10, clamped]);
       }
     } else {
-      setValues([newValue[1], newValue[2]]);
+      setValues([Math.max(newValue[1], 10), Math.min(newValue[2], 90)]);
     }
 
     setForm({
@@ -153,7 +151,6 @@ export const MealPlan = () => {
               <div className="mt-1 max-w-full w-[380px] mx-auto">
                 <Slider
                   size="medium"
-                  valueLabelDisplay="auto"
                   getAriaLabel={() => 'Minimum distance shift'}
                   value={[0, values[0], values[1], 100]}
                   onChange={handleSliderChange}
