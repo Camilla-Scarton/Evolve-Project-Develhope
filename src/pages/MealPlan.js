@@ -24,7 +24,6 @@ export const MealPlan = () => {
       ...form,
       [name]: value,
     });
-    console.log(form);
   };
 
   const [borders, setBorders] = useState([false, false, true, false, false]);
@@ -148,8 +147,9 @@ export const MealPlan = () => {
             </p>
 
             <div className="max-w-full center w-[450px] bg-gradient-to-r from-white via-white dark:from-gray-200 dark:via-gray-200 rounded-full m-2 p-1">
-              <div className="mt-1 max-w-full w-[380px] mx-auto">
+              <div className="relative mt-1 max-w-full w-[380px] mx-auto">
                 <Slider
+                className="z-10"
                   size="medium"
                   getAriaLabel={() => 'Minimum distance shift'}
                   value={[0, values[0], values[1], 100]}
@@ -161,21 +161,30 @@ export const MealPlan = () => {
                   sx={{
                     color: lightMode ? "#1e3a8a" : "#6b21a8",
                   }}
-
                 />
+                <div className="absolute top-3 max-w-full w-[380px] mx-auto">
+                    <div className="absolute top-0 left-0 bg-orange-400 w-full h-1.5 ml-0"></div>
+                    <div className={"absolute top-0 right-0 bg-green-400 h-1.5 mr-0"} style={{ width: `${100 - values[1]}%` }}></div>
+                    <div className={"absolute top-0 left-0 bg-cyan-400 h-1.5 ml-0"} style={{ width: `${values[0]}%` }}></div>
+                  </div>
               </div>
-            </div>
+            </div>                                     
             <p className="text-white hidden sm:flex">
               <strong>100%</strong>
             </p>
+
           </div>
-          <p className="text-white pb-2">
+
+          <p className="text-white pb-2 flex items-center gap-2">
+            <span className="bg-cyan-400 h-3 w-3 rounded-full"></span>
             <strong>Carbohydrates: {form.percentages.carbs} %</strong>
           </p>
-          <p className="text-white pb-2">
+          <p className="text-white pb-2 flex items-center gap-2">
+            <span className="bg-orange-400 h-3 w-3 rounded-full"></span>
             <strong>Proteins: {form.percentages.proteins} %</strong>
           </p>
-          <p className="text-white pb-2">
+          <p className="text-white pb-2 flex items-center gap-2">
+            <span className="bg-green-400 h-3 w-3 rounded-full"></span>
             <strong>Fats: {form.percentages.fats} %</strong>
           </p>
         </div>
