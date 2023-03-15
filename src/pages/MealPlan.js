@@ -75,9 +75,9 @@ export const MealPlan = () => {
               section!
             </span>
           </p>
-          <div className="center max-w-full w-[450px] bg-gradient-to-r from-white dark:from-gray-200 rounded-full m-2">
+          <div className="center max-w-full w-[450px] bg-gradient-to-r from-white dark:from-gray-200 rounded-full m-3">
             <input
-              className="mt-1 h-[30px] max-w-[90%] w-[400px] accent-blue-900 dark:accent-purple-800"
+              className="mt-1 h-[40px] max-w-[90%] w-[400px] accent-blue-900 dark:accent-purple-800"
               id="daily-calories"
               name="calories"
               required
@@ -89,7 +89,7 @@ export const MealPlan = () => {
               onChange={handleChange}
             />
           </div>
-          <p className="text-white">
+          <p className="text-white mt-2">
             <strong>{form.calories}</strong>
           </p>
         </label>
@@ -129,7 +129,7 @@ export const MealPlan = () => {
             </p>
 
             <div className="max-w-full center w-[450px] bg-gradient-to-r from-white via-white dark:from-gray-200 dark:via-gray-200 rounded-full m-2 p-1">
-              <div className="max-w-full w-[380px] mx-auto">
+              <div className="mt-1 max-w-full w-[380px] mx-auto">
                 <Slider
                   size="medium"
                   value={sliderValues}
@@ -161,11 +161,10 @@ export const MealPlan = () => {
         </div>
         <button
           type="submit"
-          className="self-center w-[200px] drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 m-5 
+          className="self-center w-[200px] drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 
             from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
             hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
-            dark:to-blue-400 dark:from-violet-500"
-        >
+            dark:to-blue-400 dark:from-violet-500">
           <span>SUBMIT</span>
         </button>
       </form>
