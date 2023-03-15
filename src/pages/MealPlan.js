@@ -54,11 +54,32 @@ export const MealPlan = () => {
     setLightMode(document.documentElement.classList.value === "")
   );
 
-  const [sliderValues, setSliderValues] = useState([45, 75]);
+  const [values, setValues] = useState([45, 75]);
+  
+  const minDistance = 10;
+  
+  const handleSliderChange = (event, newValue, activeThumb) => {
+    if (newValue[2] - newValue[1] < minDistance) {
+      if (activeThumb === 1) {
+        const clamped = Math.min(newValue[1], 100 - minDistance);
+        setValues([clamped, clamped + minDistance]);
+      } else {
+        const clamped = Math.max(newValue[2], minDistance);
+        setValues([clamped - minDistance, clamped]);
+      }
+    } else {
+      setValues([newValue[1], newValue[2]]);
+    }
 
-  useEffect(() => {
-    setSliderValues([form.percentages.carbs, 100 - form.percentages.fats]);
-  }, [form.percentages.carbs, form.percentages.fats]);
+    setForm({
+          ...form,
+          percentages: {
+            carbs: values[0],
+            proteins: values[1] - values[0],
+            fats: 100 - values[1],
+          }
+        })
+  };
 
   return (
     <div className="w-full h-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400">
@@ -132,16 +153,18 @@ export const MealPlan = () => {
               <div className="mt-1 max-w-full w-[380px] mx-auto">
                 <Slider
                   size="medium"
-                  value={sliderValues}
                   valueLabelDisplay="auto"
-                  min={0}
-                  max={100}
+                  getAriaLabel={() => 'Minimum distance shift'}
+                  value={[0, values[0], values[1], 100]}
+                  onChange={handleSliderChange}
+                  getAriaValueText={(value) => `${value}%`}
                   step={5}
                   disableSwap
                   track={false}
                   sx={{
                     color: lightMode ? "#1e3a8a" : "#6b21a8",
                   }}
+
                 />
               </div>
             </div>
