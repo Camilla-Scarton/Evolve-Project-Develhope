@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Slider } from "@mui/material";
 
 // TODO slider con 2 punti per le percentuali di carboidrati, proteine e grassi con material UI
 // https://mui.com/material-ui/react-slider/
@@ -10,9 +11,11 @@ export const MealPlan = () => {
   const [form, setForm] = useState({
     calories: 2600,
     meals: 3,
-    carbs: "",
-    proteins: "",
-    fats: "",
+    percentages: {
+      carbs: 45,
+      proteins: 30,
+      fats: 25,
+    },
   });
 
   const handleChange = (event) => {
@@ -44,6 +47,19 @@ export const MealPlan = () => {
     });
   }, [form.meals]);
 
+  const [lightMode, setLightMode] = useState(
+    document.documentElement.classList.value === ""
+  );
+  window.addEventListener("click", () =>
+    setLightMode(document.documentElement.classList.value === "")
+  );
+
+  const [sliderValues, setSliderValues] = useState([45, 75]);
+
+  useEffect(() => {
+    setSliderValues([form.percentages.carbs, 100 - form.percentages.fats]);
+  }, [form.percentages.carbs, form.percentages.fats]);
+
   return (
     <div className="w-full h-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400">
       <form className="p-4 flex flex-col text-center justify-center h-[100%] gap-10">
@@ -59,7 +75,7 @@ export const MealPlan = () => {
               section!
             </span>
           </p>
-          <div className="center w-[450px] bg-gradient-to-r from-white dark:from-gray-200 rounded-full m-2">
+          <div className="center max-w-full w-[450px] bg-gradient-to-r from-white dark:from-gray-200 rounded-full m-2">
             <input
               className="mt-1 h-[30px] max-w-[90%] w-[400px] accent-blue-900 dark:accent-purple-800"
               id="daily-calories"
@@ -87,79 +103,62 @@ export const MealPlan = () => {
             {borders.map((borderValue, i) => {
               return (
                 <button
-                  key={`key-${i+1}`}
-                  name={i+1}
+                  key={`key-${i + 1}`}
+                  name={i + 1}
                   type="button"
                   className={`mx-auto w-[30px] text-white text-center bg-[#ffffff4f] rounded-sm border-2 ${
-                  borderValue ? "border-white" : "border-transparent"
-                }`}
-                onClick={handleMealClick}
+                    borderValue ? "border-white" : "border-transparent"
+                  }`}
+                  onClick={handleMealClick}
                 >
-                {borderValue ? <strong>{i+1}</strong> : i+1}
+                  {borderValue ? <strong>{i + 1}</strong> : i + 1}
                 </button>
-              )
+              );
             })}
           </div>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 items-center">
           <p className="text-white py-2">
             Which <strong>macronutrients</strong> percentage distribution do you
             prefer?
           </p>
-
-          <label htmlFor="carb-distribution">
-            <p className="text-white pb-2">
-              Percentage of <strong>carbohydrates</strong>:
+          <div className="max-w-full flex flex-col sm:flex-row flex-wrap w-[540px] items-center justify-between pb-2">
+            <p className="text-white hidden sm:flex">
+              <strong>0%</strong>
             </p>
-            <input
-              className="w-[200px] text-white text-center bg-[#ffffff4f] rounded-sm"
-              id="carb-distribution"
-              name="carbs"
-              required
-              type="number"
-              value={form.carbs}
-              min={10}
-              max={80}
-              onChange={handleChange}
-            />
-          </label>
 
-          <label htmlFor="protein-distribution">
-            <p className="text-white py-2">
-              Percentage of <strong>proteins</strong>:
+            <div className="max-w-full center w-[450px] bg-gradient-to-r from-white via-white dark:from-gray-200 dark:via-gray-200 rounded-full m-2 p-1">
+              <div className="max-w-full w-[380px] mx-auto">
+                <Slider
+                  size="medium"
+                  value={sliderValues}
+                  valueLabelDisplay="auto"
+                  min={0}
+                  max={100}
+                  step={5}
+                  disableSwap
+                  track={false}
+                  sx={{
+                    color: lightMode ? "#1e3a8a" : "#6b21a8",
+                  }}
+                />
+              </div>
+            </div>
+            <p className="text-white hidden sm:flex">
+              <strong>100%</strong>
             </p>
-            <input
-              className="w-[200px] text-white text-center bg-[#ffffff4f] rounded-sm"
-              id="protein-distribution"
-              name="proteins"
-              required
-              type="number"
-              value={form.proteins}
-              min={10}
-              max={80}
-              onChange={handleChange}
-            />
-          </label>
-
-          <label htmlFor="fat-distribution">
-            <p className="text-white py-2">
-              Percentage of <strong>fats</strong>:
-            </p>
-            <input
-              className="w-[200px] text-white text-center bg-[#ffffff4f] rounded-sm"
-              id="fat-distribution"
-              name="fats"
-              required
-              type="number"
-              value={form.fats}
-              min={10}
-              max={80}
-              disabled
-            />
-          </label>
+          </div>
+          <p className="text-white pb-2">
+            <strong>Carbohydrates: {form.percentages.carbs} %</strong>
+          </p>
+          <p className="text-white pb-2">
+            <strong>Proteins: {form.percentages.proteins} %</strong>
+          </p>
+          <p className="text-white pb-2">
+            <strong>Fats: {form.percentages.fats} %</strong>
+          </p>
         </div>
-
         <button
           type="submit"
           className="self-center w-[200px] drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 m-5 
