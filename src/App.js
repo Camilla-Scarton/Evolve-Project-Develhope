@@ -6,7 +6,10 @@ import Bmi from "./pages/Bmi";
 import { Footer } from "./components/shared/Footer";
 import { Navbar } from "./components/shared/Navbar";
 import { ExCard } from "./pages/Ex-card";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 import FirstCanvas from "./components/BodyModelCanvas";
+import { MealPlan } from "./pages/MealPlan";
 
 function App() {
   return (
@@ -17,9 +20,12 @@ function App() {
           <Route path="/map" element={<Map />}></Route>
           <Route path="/design" element={<Design />}></Route>
           <Route path="/bmi" element={<Bmi />}></Route>
+          <Route path="/mealPlan" element={<MealPlan />}></Route>
           <Route path="/" element={<FirstCanvas />}>
             <Route path=":bodyPart" element={<ExCard />} />
           </Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </main>
       <Footer />
