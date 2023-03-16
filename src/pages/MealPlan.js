@@ -265,59 +265,49 @@ export const MealPlan = () => {
             </span>
           </p>
           <hr className="mx-auto w-[50%]" />
-
-          <div class="max-w-full">
-            <h5 className="pb-2">Distributions</h5>
-            <div className="mx-auto max-w-[90%] w-[1000px] flex flex-row flex-wrap gap-2 justify-evenly">
-              <p>1 g of carbs gives 4 calories.</p>
-              <p>1 g of proteins gives 4 calories.</p>
-              <p>1 g of fats gives 9 calories.</p>
-            </div>
-
-            <p className="flex flex-col items-center gap-2 pt-5">
-              <h5>Total calories and grams of macronutrients</h5>
-              <div className="max-w-[90%] w-[1000px] flex flex-row flex-wrap gap-2 justify-evenly">
-                <div>
-                  <strong>
-                    {Math.round((form.calories / 100) * form.percentages.carbs)}
-                  </strong>{" "}
-                  calories from carbohydrates (
-                  <strong>
-                    {Math.round(
-                      ((form.calories / 100) * form.percentages.carbs) / 4
-                    )}
-                  </strong>{" "}
-                  grams)
-                </div>
-                <div>
-                  <strong>
-                    {Math.round(
-                      (form.calories / 100) * form.percentages.proteins
-                    )}
-                  </strong>{" "}
-                  calories from proteins (
-                  <strong>
-                    {Math.round(
-                      ((form.calories / 100) * form.percentages.proteins) / 4
-                    )}
-                  </strong>{" "}
-                  grams)
-                </div>
-                <div>
-                  <strong>
-                    {Math.round((form.calories / 100) * form.percentages.fats)}
-                  </strong>{" "}
-                  calories from fats (
-                  <strong>
-                    {Math.round(
-                      ((form.calories / 100) * form.percentages.fats) / 9
-                    )}
-                  </strong>{" "}
-                  grams)
-                </div>
+          <p className="max-w-full flex flex-col items-center gap-2 py-2">
+            <h5>Total calories and grams distribution</h5>
+            <div className="max-w-[90%] w-[1500px] flex flex-row flex-wrap gap-2 justify-evenly">
+              <div>
+                <strong>
+                  {Math.round((form.calories / 100) * form.percentages.carbs)}
+                </strong>{" "}
+                calories from carbohydrates (
+                <strong>
+                  {Math.round(
+                    ((form.calories / 100) * form.percentages.carbs) / 4
+                  )}
+                </strong>{" "}
+                grams)
               </div>
-            </p>
-          </div>
+              <div>
+                <strong>
+                  {Math.round(
+                    (form.calories / 100) * form.percentages.proteins
+                  )}
+                </strong>{" "}
+                calories from proteins (
+                <strong>
+                  {Math.round(
+                    ((form.calories / 100) * form.percentages.proteins) / 4
+                  )}
+                </strong>{" "}
+                grams)
+              </div>
+              <div>
+                <strong>
+                  {Math.round((form.calories / 100) * form.percentages.fats)}
+                </strong>{" "}
+                calories from fats (
+                <strong>
+                  {Math.round(
+                    ((form.calories / 100) * form.percentages.fats) / 9
+                  )}
+                </strong>{" "}
+                grams)
+              </div>
+            </div>
+          </p>
           <hr className="mx-auto w-[50%]" />
           <div className="max-w-[90%] w-[1250px] flex flex-col items-center gap-3 sm:gap-10">
             <div className="flex flex-col sm:flex-row justify-evenly gap-2">
