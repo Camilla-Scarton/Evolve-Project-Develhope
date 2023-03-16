@@ -279,11 +279,11 @@ export const MealPlan = () => {
               <div className="max-w-[90%] w-[1000px] flex flex-row flex-wrap gap-2 justify-evenly">
                 <div>
                   <strong>
-                    {(form.calories / 100) * form.percentages.carbs}
+                    {Math.round((form.calories / 100) * form.percentages.carbs)}
                   </strong>{" "}
                   calories from carbohydrates (
                   <strong>
-                    {Math.floor(
+                    {Math.round(
                       ((form.calories / 100) * form.percentages.carbs) / 4
                     )}
                   </strong>{" "}
@@ -291,11 +291,13 @@ export const MealPlan = () => {
                 </div>
                 <div>
                   <strong>
-                    {(form.calories / 100) * form.percentages.proteins}
+                    {Math.round(
+                      (form.calories / 100) * form.percentages.proteins
+                    )}
                   </strong>{" "}
                   calories from proteins (
                   <strong>
-                    {Math.floor(
+                    {Math.round(
                       ((form.calories / 100) * form.percentages.proteins) / 4
                     )}
                   </strong>{" "}
@@ -303,11 +305,11 @@ export const MealPlan = () => {
                 </div>
                 <div>
                   <strong>
-                    {(form.calories / 100) * form.percentages.fats}
+                    {Math.round((form.calories / 100) * form.percentages.fats)}
                   </strong>{" "}
                   calories from fats (
                   <strong>
-                    {Math.floor(
+                    {Math.round(
                       ((form.calories / 100) * form.percentages.fats) / 9
                     )}
                   </strong>{" "}
