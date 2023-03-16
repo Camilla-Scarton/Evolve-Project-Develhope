@@ -319,7 +319,7 @@ export const MealPlan = () => {
           <hr className="mx-auto w-[50%]" />
           <div className="max-w-[90%] w-[1250px] flex flex-col items-center gap-3 sm:gap-10">
             <div className="flex flex-col sm:flex-row justify-evenly gap-2">
-              <div>
+              <div className="w-full sm:w-1/3">
                 <h5 className="pb-3">Carbs</h5>
                 <div className="flex flex-row items-center justify-evenly flex-wrap pb-2">
                   <FontAwesomeIcon icon={faBowlRice} size="xl" />
@@ -332,7 +332,7 @@ export const MealPlan = () => {
                   potatoes, biscuits, ice-cream...
                 </p>
               </div>
-              <div>
+              <div className="w-full sm:w-1/3">
                 <h5 className="pb-3">Proteins</h5>
                 <div className="flex flex-row items-center justify-evenly flex-wrap pb-2">
                   <FontAwesomeIcon icon={faDrumstickBite} size="xl" />
@@ -346,7 +346,7 @@ export const MealPlan = () => {
                   cottage cheese, greek yogurt, almonds...
                 </p>
               </div>
-              <div>
+              <div className="w-full sm:w-1/3">
                 <h5 className="pb-3">Fats</h5>
                 <div className="flex flex-row items-center justify-evenly flex-wrap pb-2">
                   <FontAwesomeIcon icon={faCheese} size="xl" />
@@ -361,7 +361,7 @@ export const MealPlan = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-5 justify-around">
-              <div>
+              <div className="w-full sm:w-1/3">
                 <div className="flex flex-row items-center justify-evenly flex-wrap pb-2">
                   <FontAwesomeIcon icon={faCarrot} size="xl" />
                   <h5>Vegetables</h5>
@@ -372,7 +372,7 @@ export const MealPlan = () => {
                   different vitamins!
                 </p>
               </div>
-              <div>
+              <div className="w-full sm:w-1/3">
                 <div className="flex flex-row items-center justify-evenly flex-wrap pb-2">
                   <FontAwesomeIcon icon={faLemon} size="xl" />
                   <h5>Fruits</h5>
@@ -380,7 +380,7 @@ export const MealPlan = () => {
                 </div>
                 <p>Fruits are rich in vitamins, but watch out for sugars!</p>
               </div>
-              <div>
+              <div className="w-full sm:w-1/3">
                 <div className="flex flex-row items-center justify-evenly flex-wrap pb-2">
                   <FontAwesomeIcon icon={faGlassWater} size="xl" />
                   <h5>Water</h5>
