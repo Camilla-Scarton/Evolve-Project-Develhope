@@ -37,7 +37,7 @@ export default function Bmi() {
   //validazione numero intero
 
   function isIntegerNum(num) {
-    if (typeof parseInt(num) == "number" && num % 1 === 0) {
+    if (typeof parseInt(num) == "number" && num % 1 === 0 && num >= 1) {
       return true
     }
   }
@@ -111,18 +111,20 @@ export default function Bmi() {
   };
 
   return (
-    <div className="flex items-center justify-center h-full w-full 
+    <div className="flex flex-col lg:flex-row items-center justify-center h-full w-full 
     bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700
      dark:to-blue-400">
-      <div className="p-2 m-3 rounded-sm">
+      <div className="p-2 m-3">
         <form
-          className="flex flex-col items-center justify-center"
+          className="flex flex-col items-center justify-center "
           onSubmit={fetchData}
         >
-          <label className="m-3 text-white p-2" htmlFor="age">
-            Age:{" "}
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <label className="m-3 text-white p-2" htmlFor="age">
+              Age:{" "}
+            </label>
             <input
-              className="pl-2 bg-[#ffffff4f] rounded-sm m-3"
+              className="pl-2 w-3/4 bg-[#ffffff4f] rounded-sm m-3"
               required
               type="number"
               id="age"
@@ -130,12 +132,14 @@ export default function Bmi() {
               value={info.age}
               onChange={handleInput}
             />
-          </label>
+          </div>
 
-          <label className="m-3 text-white p-2" htmlFor="gender">
-            Gender:{" "}
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <label className="m-3 text-white p-2" htmlFor="gender">
+              Gender:{" "}
+            </label>
             <select
-              className="pl-2 bg-[#ffffff4f] text-black rounded-sm m-3"
+              className="pl-2 w-full bg-[#ffffff4f] text-black rounded-sm m-3"
               name="gender"
               id="gender"
               value={info.gender}
@@ -144,12 +148,15 @@ export default function Bmi() {
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
-          </label>
 
-          <label className="m-3 text-white p-2" htmlFor="height">
-            Height:{" "}
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <label className="m-3 text-white p-2" htmlFor="height">
+              Height:{" "}
+            </label>
             <input
-              className="pl-2 bg-[#ffffff4f] rounded-sm m-3"
+              className="pl-2 w-3/4 bg-[#ffffff4f] rounded-sm m-3"
               required
               type="number"
               id="height"
@@ -157,12 +164,14 @@ export default function Bmi() {
               value={info.height}
               onChange={handleInput}
             />
-          </label>
+          </div>
 
-          <label className="m-3 text-white p-2" htmlFor="weight">
-            Weight:{" "}
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <label className="m-3 text-white p-2" htmlFor="weight">
+              Weight:{" "}
+            </label>
             <input
-              className="pl-2 bg-[#ffffff4f] rounded-sm m-3"
+              className="pl-2 w-3/4 bg-[#ffffff4f] rounded-sm m-3"
               required
               type="number"
               id="weight"
@@ -170,12 +179,14 @@ export default function Bmi() {
               value={info.weight}
               onChange={handleInput}
             />
-          </label>
+          </div>
 
-          <label className="m-3 text-white p-2" htmlFor="activitylevel">
-            Activity Level:
+          <div className="flex flex-col lg:flex-row items-center justify-center">
+            <label className="m-3 text-white p-2" htmlFor="activitylevel">
+              Activity Level:
+            </label>
             <select
-              className="pl-2 bg-[#ffffff4f] text-black rounded-sm m-3"
+              className="pl-2 bg-[#ffffff4f] w-2/4 text-black rounded-sm m-3"
               name="activitylevel"
               id="activitylevel"
               value={info.activitylevel}
@@ -193,7 +204,7 @@ export default function Bmi() {
                 Very intense exercise daily, or physical job
               </option>
             </select>
-          </label>
+          </div>
           {loading && <p className="text-white">Loading...</p>}
           <div className="flex justify-center items-center">
             <button
@@ -218,12 +229,12 @@ export default function Bmi() {
             </div></div>}
         </form>
       </div>
-      {response && <div className="flex flex-col items-center justify-center">
+      {response && <div className="flex flex-col items-center justify-center mb-5">
         <div className="flex flex-col">
           <div className="flex">
             <div className="flex flex-col ml-0">
               <div className="flex flex-col justify-center items-center">
-                <h2 className="m-5  text-white">Goals</h2>
+                <h2 className="m-5 text-white">Goals</h2>
               </div>
               <h3 className="m-1  text-white">Extreme weight gain:</h3>
               <h3 className="m-1  text-white">Extreme weight loss:</h3>
@@ -247,7 +258,7 @@ export default function Bmi() {
             </div>
             <div className="flex flex-col justify-center items-center">
               <div className="flex flex-col justify-center items-center">
-                <h2 className="m-5  text-white">Weight</h2>
+                <h2 className="m-5 text-white">Weight</h2>
               </div>
               <h3 className="m-1  text-white">+{response.data.data.goals["Extreme weight gain"]["gain weight"]}</h3>
               <h3 className="m-1  text-white">-{response.data.data.goals["Extreme weight loss"]["loss weight"]}</h3>
@@ -255,7 +266,7 @@ export default function Bmi() {
               <h3 className="m-1  text-white">-{response.data.data.goals["Mild weight loss"]["loss weight"]}</h3>
               <h3 className="m-1  text-white">+{response.data.data.goals["Weight gain"]["gain weight"]}</h3>
               <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
-              <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
+              <h3 className="m-1  text-white">-</h3>
             </div>
           </div>
         </div>
