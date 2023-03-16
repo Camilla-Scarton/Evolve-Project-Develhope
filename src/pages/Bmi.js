@@ -121,7 +121,7 @@ export default function Bmi() {
         >
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <label className="m-3 text-white p-2" htmlFor="age">
-              Age:{" "}
+              <h4>Age:</h4>
             </label>
             <input
               className="pl-2 w-3/4 bg-[#ffffff4f] rounded-sm m-3"
@@ -136,7 +136,7 @@ export default function Bmi() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <label className="m-3 text-white p-2" htmlFor="gender">
-              Gender:{" "}
+              <h4>Gender:</h4>
             </label>
             <select
               className="pl-2 w-full bg-[#ffffff4f] text-black rounded-sm m-3"
@@ -153,7 +153,7 @@ export default function Bmi() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <label className="m-3 text-white p-2" htmlFor="height">
-              Height:{" "}
+              <h4>Height:</h4>
             </label>
             <input
               className="pl-2 w-3/4 bg-[#ffffff4f] rounded-sm m-3"
@@ -168,7 +168,7 @@ export default function Bmi() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <label className="m-3 text-white p-2" htmlFor="weight">
-              Weight:{" "}
+              <h4>Weight:</h4>
             </label>
             <input
               className="pl-2 w-3/4 bg-[#ffffff4f] rounded-sm m-3"
@@ -183,7 +183,7 @@ export default function Bmi() {
 
           <div className="flex flex-col lg:flex-row items-center justify-center">
             <label className="m-3 text-white p-2" htmlFor="activitylevel">
-              Activity Level:
+              <h4>Activity Level:</h4>
             </label>
             <select
               className="pl-2 bg-[#ffffff4f] w-2/4 text-black rounded-sm m-3"
@@ -229,48 +229,54 @@ export default function Bmi() {
             </div></div>}
         </form>
       </div>
-      {response && <div className="flex flex-col items-center justify-center mb-5">
-        <div className="flex flex-col">
-          <div className="flex">
-            <div className="flex flex-col ml-0">
-              <div className="flex flex-col justify-center items-center">
-                <h2 className="m-5 text-white">Goals</h2>
-              </div>
-              <h3 className="m-1  text-white">Extreme weight gain:</h3>
-              <h3 className="m-1  text-white">Extreme weight loss:</h3>
-              <h3 className="m-1  text-white">Mild weight gain:</h3>
-              <h3 className="m-1  text-white">Mild weight loss:</h3>
-              <h3 className="m-1 text-white">Weight gain:</h3>
-              <h3 className="m-1  text-white">Weight loss:</h3>
-              <h3 className="m-1  text-white">Maintain weight:</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex flex-col justify-center items-center">
-                <h2 className="m-5 text-white">Calory</h2>
-              </div>
-              <h3 className="m-1  text-white"> {Math.round(response.data.data.goals["Extreme weight gain"].calory)}</h3>
-              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Extreme weight loss"].calory)}</h3>
-              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Mild weight gain"].calory)}</h3>
-              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Mild weight loss"].calory)}</h3>
-              <h3 className="m-1 text-white">{Math.round(response.data.data.goals["Weight gain"].calory)}</h3>
-              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["Weight loss"].calory)}</h3>
-              <h3 className="m-1  text-white">{Math.round(response.data.data.goals["maintain weight"])}</h3>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex flex-col justify-center items-center">
-                <h2 className="m-5 text-white">Weight</h2>
-              </div>
-              <h3 className="m-1  text-white">+{response.data.data.goals["Extreme weight gain"]["gain weight"]}</h3>
-              <h3 className="m-1  text-white">-{response.data.data.goals["Extreme weight loss"]["loss weight"]}</h3>
-              <h3 className="m-1  text-white">+{response.data.data.goals["Mild weight gain"]["gain weight"]}</h3>
-              <h3 className="m-1  text-white">-{response.data.data.goals["Mild weight loss"]["loss weight"]}</h3>
-              <h3 className="m-1  text-white">+{response.data.data.goals["Weight gain"]["gain weight"]}</h3>
-              <h3 className="m-1  text-white">-{response.data.data.goals["Weight loss"]["loss weight"]}</h3>
-              <h3 className="m-1  text-white">-</h3>
-            </div>
-          </div>
-        </div>
-      </div>}
+      {response &&
+      <table className="text-white text-center m-10">
+        <thead>
+          <tr>
+            <th><h2 className="m-3 sm:m-5">Goals</h2></th>
+            <th><h2 className="m-3 sm:m-5">Calory</h2></th>
+            <th><h2 className="m-3 sm:m-5">Weight</h2></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Maintain weight:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["maintain weight"])}</h4></td>
+            <td><h4>-</h4></td>
+          </tr>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Weight loss:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["Weight loss"].calory)}</h4></td>
+            <td><h4>-{response.data.data.goals["Weight loss"]["loss weight"]}</h4></td>
+          </tr>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Weight gain:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["Weight gain"].calory)}</h4></td>
+            <td><h4>+{response.data.data.goals["Weight gain"]["gain weight"]}</h4></td>
+          </tr>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Mild weight loss:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["Mild weight loss"].calory)}</h4></td>
+            <td><h4>-{response.data.data.goals["Mild weight loss"]["loss weight"]}</h4></td>
+          </tr>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Mild weight gain:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["Mild weight gain"].calory)}</h4></td>
+            <td><h4>+{response.data.data.goals["Mild weight gain"]["gain weight"]}</h4></td>
+          </tr>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Extreme weight loss:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["Extreme weight loss"].calory)}</h4></td>
+            <td><h4>-{response.data.data.goals["Extreme weight loss"]["loss weight"]}</h4></td>
+          </tr>
+          <tr>
+            <td><h4 className="m-2 sm:m-3 text-left">Extreme weight gain:</h4></td>
+            <td><h4>{Math.round(response.data.data.goals["Extreme weight gain"].calory)}</h4></td>
+            <td><h4>+{response.data.data.goals["Extreme weight gain"]["gain weight"]}</h4></td>
+          </tr>
+        </tbody>
+      </table>
+      }
     </div>
   );
 }
