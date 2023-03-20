@@ -124,7 +124,7 @@ export default function Bmi() {
               <h4>Age:</h4>
             </label>
             <input
-              className="pl-2 rounded-sm m-3"
+              className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
               required
               type="number"
               id="age"
@@ -139,7 +139,7 @@ export default function Bmi() {
               <h4>Gender:</h4>
             </label>
             <select
-              className="pl-2 rounded-sm m-3"
+              className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
               name="gender"
               id="gender"
               value={info.gender}
@@ -156,7 +156,7 @@ export default function Bmi() {
               <h4>Height:</h4>
             </label>
             <input
-              className="pl-2 rounded-sm m-3"
+              className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
               required
               type="number"
               id="height"
@@ -171,7 +171,7 @@ export default function Bmi() {
               <h4>Weight:</h4>
             </label>
             <input
-              className="pl-2 rounded-sm m-3"
+              className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
               required
               type="number"
               id="weight"
@@ -186,7 +186,7 @@ export default function Bmi() {
               <h4>Activity Level:</h4>
             </label>
             <select
-              className="pl-2 rounded-sm m-3"
+              className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
               name="activitylevel"
               id="activitylevel"
               value={info.activitylevel}
