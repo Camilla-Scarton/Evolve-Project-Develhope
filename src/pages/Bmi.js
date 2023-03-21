@@ -16,6 +16,9 @@ export default function Bmi() {
   const [response, setResponse] = useState(null);
 
   const handleInput = (event) => {
+    if (error) {
+      setError(null)
+    }
     setInfo({
       ...info,
       [event.target.name]: event.target.value,
@@ -120,7 +123,7 @@ export default function Bmi() {
           onSubmit={fetchData}
         >
           <div className="flex flex-col justify-center">
-            <label className="m-3 text-white p-2" htmlFor="age">
+            <label className="mx-3 mt-2 text-white p-2" htmlFor="age">
               <h4>Age:</h4>
             </label>
             <input
@@ -135,7 +138,7 @@ export default function Bmi() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <label className="m-3 text-white p-2" htmlFor="gender">
+            <label className="mx-3 mt-2 text-white p-2" htmlFor="gender">
               <h4>Gender:</h4>
             </label>
             <select
@@ -152,7 +155,7 @@ export default function Bmi() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <label className="m-3 text-white p-2" htmlFor="height">
+            <label className="mx-3 mt-2 text-white p-2" htmlFor="height">
               <h4>Height:</h4>
             </label>
             <input
@@ -167,7 +170,7 @@ export default function Bmi() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <label className="m-3 text-white p-2" htmlFor="weight">
+            <label className="mx-3 mt-2 text-white p-2" htmlFor="weight">
               <h4>Weight:</h4>
             </label>
             <input
@@ -182,7 +185,7 @@ export default function Bmi() {
           </div>
 
           <div className="flex flex-col justify-center">
-            <label className="m-3 text-white p-2" htmlFor="activitylevel">
+            <label className="mx-3 mt-2 text-white p-2" htmlFor="activitylevel">
               <h4>Activity Level:</h4>
             </label>
             <select
@@ -221,7 +224,7 @@ export default function Bmi() {
             dark:to-blue-400 dark:from-violet-500 ">
               <FontAwesomeIcon icon={faRotateLeft} size="1x" /></button>
           </div>
-          {error && <div ><div class="bg-red-700 text-white font-bold rounded-t px-4 py-2">
+          {error && <div><div class="bg-red-700 text-white font-bold rounded-t px-4 py-2">
             Danger
           </div>
             <div className="border border-t-0 border-red-800 rounded-b bg-red-100 px-4 py-3 text-red-700">
