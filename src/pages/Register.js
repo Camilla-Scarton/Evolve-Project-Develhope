@@ -23,7 +23,7 @@ export function Register() {
     return (
         <div className=" flex justify-center items-center w-full h-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700
         dark:to-blue-400">
-            <div className=" bg-white w-[28rem] h-[40rem] drop-shadow-lg shadow-lg hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600 rounded-md">
+            <form className=" bg-white w-[28rem] h-[40rem] drop-shadow-lg shadow-lg hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600 rounded-md">
                 <div className="flex justify-center p-14">
                     <h1>Register</h1>
                 </div>
@@ -63,9 +63,9 @@ export function Register() {
             dark:to-blue-400 dark:from-violet-500" type="submit">Register</button>
                 </div>
                 <div className="flex justify-center mt-28">
-                    <small>Sei già registrato? <Link to="/login"><span className=" text-blue-800">Clicca qui</span></Link></small>
+                    <small>Already registered?<Link to="/login"><span className=" text-blue-800">Click here!</span></Link></small>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

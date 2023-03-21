@@ -22,7 +22,7 @@ export function Login() {
     return (
         <div className=" flex justify-center items-center w-full h-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700
         dark:to-blue-400">
-            <div className=" bg-white w-[28rem] h-[40rem] drop-shadow-lg shadow-lg hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600 rounded-md">
+            <form className=" bg-white w-[28rem] h-[40rem] drop-shadow-lg shadow-lg hover:shadow-xl dark:shadow-slate-600 dark:hover:shadow-slate-600 rounded-md">
                 <div className="flex justify-center p-14">
                     <h1>Login</h1>
                 </div>
@@ -51,9 +51,9 @@ export function Login() {
             dark:to-blue-400 dark:from-violet-500" type="submit">Login</button>
                 </div>
                 <div className="flex justify-center mt-52">
-                    <small>Non sei registrato? <Link to="/register"><span className=" text-blue-800">Clicca qui</span></Link></small>
+                    <small>Not registered yet?<Link to="/register"><span className=" text-blue-800">Click here!</span></Link></small>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
