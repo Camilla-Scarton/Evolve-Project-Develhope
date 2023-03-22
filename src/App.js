@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 
 import { Design } from "./pages/Design";
 import Map from "./pages/Map";
@@ -10,6 +10,8 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import FirstCanvas from "./components/BodyModelCanvas";
 import { MealPlan } from "./pages/MealPlan";
+import { Profile } from "./pages/Profile";
+import pb from "./lib/pocketbase";
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
           </Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/profile" element={pb.authStore.isValid ? <Profile /> : <Navigate to="/login" replace />}></Route>
         </Routes>
       </main>
       <Footer />

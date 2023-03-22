@@ -11,10 +11,11 @@ import {
   faUtensils,
   faPizzaSlice,
   faRightToBracket,
-  faRightFromBracket,
   faBars,
   faXmark,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import pb from "../../lib/pocketbase";
 
 const MobileNavigation = () => {
   const [open, setOpen] = useState(false);
@@ -78,27 +79,28 @@ const MobileNavigation = () => {
               <h4>Meal plan</h4>
             </motion.div>
           </Link>
-          <Link to="login" onClick={() => setOpen(false)}>
-            <motion.div
-              className="flex flex-row gap-3 items-center"
-              initial={animatedFrom}
-              animate={animatedTo}
-              transition={{ delay: 0.25 }}
-            >
-              <FontAwesomeIcon icon={faRightToBracket} size="xl" />
-              <h4>Login</h4>
-            </motion.div>
-          </Link>
-          {false && (
-            <Link to="/" onClick={() => setOpen(false)}>
+          {pb.authStore.isValid ? (
+            <Link to="/profile" onClick={() => setOpen(false)}>
               <motion.div
                 className="flex flex-row gap-3 items-center"
                 initial={animatedFrom}
                 animate={animatedTo}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.25 }}
               >
-                <FontAwesomeIcon icon={faRightFromBracket} size="xl" />
-                <h4>Logout</h4>
+                <FontAwesomeIcon icon={faUser} size="xl" />
+                <h4>Profile</h4>
+              </motion.div>
+            </Link>
+          ) : (
+            <Link to="/login" onClick={() => setOpen(false)}>
+              <motion.div
+                className="flex flex-row gap-3 items-center"
+                initial={animatedFrom}
+                animate={animatedTo}
+                transition={{ delay: 0.25 }}
+              >
+                <FontAwesomeIcon icon={faRightToBracket} size="xl" />
+                <h4>Login</h4>
               </motion.div>
             </Link>
           )}

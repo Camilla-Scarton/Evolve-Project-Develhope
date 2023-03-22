@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import pb from "../../lib/pocketbase";
 
 const Navigation = () => {
   return (
@@ -19,9 +20,15 @@ const Navigation = () => {
         <h6>Meal plan</h6>
       </Link>
       <>|</>
-      <Link to="login">
-        <h6>Login</h6>
-      </Link>
+      {pb.authStore.isValid ? (
+        <Link to="profile">
+          <h6>Profile</h6>
+        </Link>
+      ) : (
+        <Link to="login">
+          <h6>Login</h6>
+        </Link>
+      )}
     </div>
   );
 };
