@@ -10,34 +10,51 @@ export const Profile = () => {
     window.location.reload(false);
   }
 
+  const {
+    username,
+    age,
+    height,
+    weight,
+    activity_level,
+    daily_calories,
+    //meals_number,
+    carbs_perc,
+    proteins_perc,
+    fats_perc,
+    //fav_exercises,
+    position
+  } = pb.authStore.model;
+
+
   return (
     <>
       <div className="flex flex-col gap-2 items-center justify-center h-full w-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400 text-white">
-        <h1>Hello, {"user" || "username from db"}!</h1>
+        <h1>Hello, {username || "user"}!</h1>
         <div className="flex flex-col gap-6 items-center m-4 rounded-md bg-[#ffffff4f] p-6">
           <div className="w-full flex flex-col items-center sm:flex-row sm:gap-5">
             <div className="border border-white w-[200px] h-[200px] text-center">
               <div className="my-20">img</div>
             </div>
             <div className="flex flex-col gap-2">
-              <h2>Age: -</h2>
-              <h2>Height: -</h2>
-              <h2>Weight: -</h2>
+              <h2>Age: {age || "-"}</h2>
+              <h2>Height: {height || "-"}</h2>
+              <h2>Weight: {weight || "-"}</h2>
             </div>
           </div>
           <div>
-            <h2>Position: -</h2>
+            <h2>Position: {position || "-"}</h2>
             <p>Favorite gyms: -</p>
           </div>
           <div>
-            <h2>Activity level: -</h2>
+            <h2>Activity level: </h2>
+            <h5>{activity_level || "-"}</h5>
             <p>Favorite exercises: -</p>
           </div>
           <div>
-            <h2>Daily calories: -</h2>
-            <p>Carbs percentage: -</p>
-            <p>Carbs percentage: -</p>
-            <p>Carbs percentage: -</p>
+            <h2>Daily calories: {daily_calories || "-"}</h2>
+            <p>Carbs percentage: {carbs_perc || "-"}</p>
+            <p>Proteins percentage: {proteins_perc || "-"}</p>
+            <p>Fats percentage: {fats_perc || "-"}</p>
           </div>
         </div>
         <button
