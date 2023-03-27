@@ -28,10 +28,10 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-2 items-center justify-center h-full w-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400 text-white">
+      <div className="py-8 flex flex-col gap-2 items-center justify-center h-full w-full bg-gradient-to-tr from-blue-300 via-blue-900 to-purple-400 dark:from-purple-300 dark:via-purple-700 dark:to-blue-400 text-white">
         <h1>Hello, {username || "user"}!</h1>
         <div className="flex flex-col gap-6 items-center m-4 rounded-md bg-[#ffffff4f] p-6">
-          <div className="w-full flex flex-col items-center sm:flex-row sm:gap-5">
+          <div className="w-full flex flex-col items-center gap-6 sm:flex-row sm:gap-5">
             <div className="border border-white w-[200px] h-[200px] text-center">
               <div className="my-20">img</div>
             </div>
