@@ -37,8 +37,8 @@ export const Profile = () => {
             </div>
             <div className="flex flex-col gap-2">
               <h2>Age: {age || "-"}</h2>
-              <h2>Height: {height || "-"}</h2>
-              <h2>Weight: {weight || "-"}</h2>
+              <h2>Height: {height || "-"} cm</h2>
+              <h2>Weight: {weight || "-"} kg</h2>
             </div>
           </div>
           <div>
@@ -52,9 +52,9 @@ export const Profile = () => {
           </div>
           <div>
             <h2>Daily calories: {daily_calories || "-"}</h2>
-            <p>Carbs percentage: {carbs_perc || "-"}</p>
-            <p>Proteins percentage: {proteins_perc || "-"}</p>
-            <p>Fats percentage: {fats_perc || "-"}</p>
+            <p>Carbs percentage: {carbs_perc || "-"} %</p>
+            <p>Proteins percentage: {proteins_perc || "-"} %</p>
+            <p>Fats percentage: {fats_perc || "-"} %</p>
           </div>
         </div>
         <button
