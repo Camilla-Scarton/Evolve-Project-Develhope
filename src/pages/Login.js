@@ -93,6 +93,7 @@ export function Login() {
                   <span>E-mail</span>
                 </label>
                 <input
+                  required
                   className=" pl-7 border-b-2 focus:outline-none h-10"
                   onChange={handleInputChange}
                   value={data.email}
@@ -104,6 +105,7 @@ export function Login() {
                   <span>Password</span>
                 </label>
                 <input
+                  required
                   className="pl-7 border-b-2 focus:outline-none h-10"
                   onChange={handleInputChange}
                   value={data.password}

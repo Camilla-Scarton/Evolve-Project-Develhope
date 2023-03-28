@@ -156,7 +156,7 @@ export default function Bmi() {
 
           <div className="flex flex-col justify-center">
             <label className="mx-3 mt-2 text-white p-2" htmlFor="height">
-              <h4>Height:</h4>
+              <h4>Height: (cm)</h4>
             </label>
             <input
               className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
@@ -171,7 +171,7 @@ export default function Bmi() {
 
           <div className="flex flex-col justify-center">
             <label className="mx-3 mt-2 text-white p-2" htmlFor="weight">
-              <h4>Weight:</h4>
+              <h4>Weight: (kg)</h4>
             </label>
             <input
               className="pl-5 h-10 rounded-xl mb-3 mx-3 outline-none"
@@ -208,15 +208,16 @@ export default function Bmi() {
               </option>
             </select>
           </div>
-          {loading && <p className="text-white">Loading...</p>}
+          
           <div className="flex justify-between pl-2 m-3">
             <button
+            disabled={loading}
               type="submit"
               className="drop-shadow-xl text-white bg-gradient-to-r rounded-md px-5 py-2 m-5 
             from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
             hover:to-blue-900  hover:scale-105 transition-all duration-200 active:shadow-[0px_0px_30px_-0px_rgba(145,82,245,0.6)]
             dark:to-blue-400 dark:from-violet-500">
-              <span>SUBMIT</span>
+              <span>{loading ? "Loading..." : "SUBMIT"}</span>
             </button>
             <button type="reset" onClick={handlereset} className="drop-shadow-xl text-white bg-gradient-to-r rounded-full px-4 py-3 m-5 
             from-blue-900 to-purple-800 hover:from-purple-800 dark:hover:from-blue-400 dark:hover:to-violet-500
