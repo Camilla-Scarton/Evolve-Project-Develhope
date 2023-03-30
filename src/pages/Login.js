@@ -32,7 +32,7 @@ export function Login() {
         .collection("users")
         .authWithPassword(email, password);
     } catch (err) {
-      console.log(err);
+      window.alert("E-mail or Password wrong.");
     }
 
     setLoading(false);

@@ -43,7 +43,7 @@ export function Register() {
         }
     } catch(err) {
         setLoading(false);
-        console.log(err);
+        window.alert(err);
     }
   }
 
