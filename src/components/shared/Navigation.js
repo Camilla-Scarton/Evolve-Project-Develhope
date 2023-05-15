@@ -7,10 +7,10 @@ const Navigation = () => {
       <Link to="/" onClick={() => window.reload()}>
         <h6>Body</h6>
       </Link>
-      <>|</>
+      {/* <>|</>
       <Link to="/map">
         <h6>Nearest gyms</h6>
-      </Link>
+      </Link> */}
       <>|</>
       <Link to="/bmi">
         <h6>Daily calories</h6>

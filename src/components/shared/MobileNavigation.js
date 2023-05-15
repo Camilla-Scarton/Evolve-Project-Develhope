@@ -46,7 +46,7 @@ const MobileNavigation = () => {
               <h4>Body</h4>
             </motion.div>
           </Link>
-          <Link to="/map" onClick={() => setOpen(false)}>
+          {/* <Link to="/map" onClick={() => setOpen(false)}>
             <motion.div
               className="flex flex-row gap-3 items-center"
               initial={animatedFrom}
@@ -56,7 +56,7 @@ const MobileNavigation = () => {
               <FontAwesomeIcon icon={faMapLocationDot} size="xl" />
               <h4>Nearest gyms</h4>
             </motion.div>
-          </Link>
+          </Link> */}
           <Link to="/bmi" onClick={() => setOpen(false)}>
             <motion.div
               className="flex flex-row gap-3 items-center"
